@@ -13,7 +13,7 @@
 .learning-visual__canvas { min-height:12rem; padding:.65rem 1rem; display:grid; place-items:center; color:var(--v-accent); }
 .learning-visual figcaption { padding:.8rem 1.2rem 1.05rem; color:color-mix(in srgb, var(--v-ink) 74%, transparent); border-top:1px solid color-mix(in srgb, var(--v-ink) 10%, transparent); font-size:.92rem; line-height:1.5; }
 .learning-visual__svg { display:block; width:100%; max-width:48rem; height:auto; max-height:22rem; color:var(--v-accent); overflow:visible; }
-.v-axis,.v-line,.v-wire,.v-guide,.v-series,.v-cycle { fill:none; stroke:currentColor; vector-effect:non-scaling-stroke; }
+.v-axis,.v-line,.v-wire,.v-guide,.v-series,.v-cycle { fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
 .v-axis { stroke:var(--v-ink); stroke-width:2; }.v-line { stroke-width:2; opacity:.55 }.v-wire { stroke-width:4; opacity:.38 }.v-guide { stroke-width:1.5; stroke-dasharray:5 5; opacity:.55 }
 .v-series { stroke-width:4; stroke-linecap:round }.v-series--soft { opacity:.5 }.v-area { fill:currentColor; opacity:.1 }
 .v-arrow { stroke-width:2.5 }.v-arrowhead { fill:currentColor }.v-focus,.v-center,.v-node,.v-chip { fill:currentColor }.v-center { opacity:.13 }.v-node { opacity:.14; stroke:currentColor; stroke-width:2 }

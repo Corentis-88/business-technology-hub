@@ -33,6 +33,18 @@ describe("qualification coverage", () => {
     }
   });
 
+  it("uses original contextual illustrations across every qualification", () => {
+    const illustratedCourses = new Set<string>();
+    const images = allTopics.flatMap(({ course, topic }) => topic.sections.flatMap((section) => {
+      if (!section.image) return [];
+      illustratedCourses.add(course.id);
+      return [section.image.src];
+    }));
+    expect(images.length).toBeGreaterThanOrEqual(10);
+    expect(new Set(images).size).toBe(images.length);
+    expect([...illustratedCourses].sort()).toEqual(["business", "computer-science", "creative-imedia", "enterprise"]);
+  });
+
   it("uses unique topic and quiz identifiers inside each qualification", () => {
     for (const course of courses) {
       const topics = course.units.flatMap((unit) => unit.topics);

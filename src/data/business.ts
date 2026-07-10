@@ -77,7 +77,7 @@ export const businessCourse: Course = {
                 "An entrepreneur organises resources to meet that need. These include people and skills, finance, materials, equipment and time. A good idea becomes an enterprise only when the resources can be combined into something customers value.",
               ],
               image: {
-                src: "images/business/customer-needs-resources-value.png",
+                src: "images/business/customer-needs-resources-value.webp",
                 alt: "A bakery illustration showing customers with different needs, an entrepreneur combining people, ingredients, equipment, money and time, and a finished cake being handed to a satisfied customer.",
                 caption: "Read the scene from left to right: understand what customers value, organise the resources, then create a product they are willing to buy.",
               },
@@ -419,6 +419,11 @@ export const businessCourse: Course = {
                 "Organic growth comes from the business's own activity, such as new products or markets. Inorganic growth occurs through merger or takeover and may be faster but creates integration risks.",
                 "Economies of scale lower average cost as output grows through purchasing, technical, financial or managerial advantages. Diseconomies can arise when communication, coordination and motivation weaken.",
               ],
+              image: {
+                src: "images/business/growth-and-operations.webp",
+                alt: "A visual story moving from a home-based online business to a staffed warehouse, quality checks, delivery and international growth.",
+                caption: "Growth changes much more than sales: premises, people, stock, quality, communication and distribution all have to scale together.",
+              },
               visual: {
                 kind: "stakeholder-map",
                 title: "Routes to business growth",

@@ -305,6 +305,11 @@ export const computerScienceCourse: Course = {
                 "A switch forwards frames within a LAN, a router moves packets between networks, a wireless access point connects wireless devices and a NIC provides a device's network interface.",
                 "IP addresses identify network locations and may change; MAC addresses identify network interfaces. DNS translates domain names into IP addresses. Hosting stores website resources on a server, while cloud services provide remote storage or processing.",
               ],
+              image: {
+                src: "images/computer-science/systems-and-security.webp",
+                alt: "A classroom computer cutaway shows internal hardware connected through a router to wired and wireless devices, with layered security around the network.",
+                caption: "A computer system is physical and connected: components process and store data, network devices move it, and several controls protect it.",
+              },
               visual: {
                 kind: "pitch-journey",
                 title: "From a domain name to a web server",
@@ -458,6 +463,11 @@ export const computerScienceCourse: Course = {
             {
               heading: "Computational thinking and design",
               paragraphs: ["Abstraction keeps relevant detail and removes distraction. Decomposition breaks a problem into manageable parts. Algorithmic thinking creates a precise sequence of steps. Represent algorithms using clear pseudocode, OCR Exam Reference Language, flowcharts or suitable diagrams."],
+              image: {
+                src: "images/computer-science/programming-problem-solving.webp",
+                alt: "Students understand and decompose a problem, plan an algorithm, write and run code, test different cases, identify a bug, fix it and confirm a working solution.",
+                caption: "Programming is an improvement cycle: understand, plan, build, test, debug and refine until the solution meets the original problem.",
+              },
               visual: { kind: "algorithm-flow", title: "A decision has two possible paths", caption: "Follow the arrows from Start and use the condition to choose the Yes or No path.", labels: ["Start", "Input mark", "mark ≥ 40?", "Display pass", "Display retry", "End"] },
             },
             {

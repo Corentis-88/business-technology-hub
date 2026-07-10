@@ -44,6 +44,80 @@ function Arrow({ x1, y1, x2, y2 }: { x1: number; y1: number; x2: number; y2: num
   return <g><line className="v-line v-arrow" x1={x1} y1={y1} x2={x2} y2={y2} /><polygon className="v-arrowhead" points={points} /></g>;
 }
 
+type Point = [number, number];
+
+function trimLine(start: Point, end: Point, startInset: number, endInset: number): [Point, Point] {
+  const dx = end[0] - start[0];
+  const dy = end[1] - start[1];
+  const length = Math.hypot(dx, dy) || 1;
+  const unitX = dx / length;
+  const unitY = dy / length;
+  return [
+    [start[0] + unitX * startInset, start[1] + unitY * startInset],
+    [end[0] - unitX * endInset, end[1] - unitY * endInset],
+  ];
+}
+
+function rectangleBoundary(center: Point, halfWidth: number, halfHeight: number, towards: Point, padding = 2): Point {
+  const dx = towards[0] - center[0];
+  const dy = towards[1] - center[1];
+  const scale = 1 / Math.max(Math.abs(dx) / (halfWidth + padding), Math.abs(dy) / (halfHeight + padding));
+  return [center[0] + dx * scale, center[1] + dy * scale];
+}
+
+function LineBetweenCircles({ start, end, startRadius, endRadius, className = "v-line" }: {
+  start: Point;
+  end: Point;
+  startRadius: number;
+  endRadius: number;
+  className?: string;
+}) {
+  const [from, to] = trimLine(start, end, startRadius + 2, endRadius + 2);
+  return <line className={className} x1={from[0]} y1={from[1]} x2={to[0]} y2={to[1]} />;
+}
+
+function ArrowBetweenCircles({ start, end, startRadius, endRadius }: {
+  start: Point;
+  end: Point;
+  startRadius: number;
+  endRadius: number;
+}) {
+  const [from, to] = trimLine(start, end, startRadius + 2, endRadius + 2);
+  return <Arrow x1={from[0]} y1={from[1]} x2={to[0]} y2={to[1]} />;
+}
+
+function LineBetweenRectangles({ start, end, halfWidth, halfHeight, className = "v-line" }: {
+  start: Point;
+  end: Point;
+  halfWidth: number;
+  halfHeight: number;
+  className?: string;
+}) {
+  const from = rectangleBoundary(start, halfWidth, halfHeight, end);
+  const to = rectangleBoundary(end, halfWidth, halfHeight, start);
+  return <line className={className} x1={from[0]} y1={from[1]} x2={to[0]} y2={to[1]} />;
+}
+
+function ArrowBetweenRectangles({ start, end, startHalfWidth, startHalfHeight, endHalfWidth, endHalfHeight }: {
+  start: Point;
+  end: Point;
+  startHalfWidth: number;
+  startHalfHeight: number;
+  endHalfWidth: number;
+  endHalfHeight: number;
+}) {
+  const from = rectangleBoundary(start, startHalfWidth, startHalfHeight, end);
+  const to = rectangleBoundary(end, endHalfWidth, endHalfHeight, start);
+  return <Arrow x1={from[0]} y1={from[1]} x2={to[0]} y2={to[1]} />;
+}
+
+function diamondBoundary(center: Point, halfWidth: number, halfHeight: number, towards: Point, padding = 2): Point {
+  const dx = towards[0] - center[0];
+  const dy = towards[1] - center[1];
+  const scale = 1 / (Math.abs(dx) / (halfWidth + padding) + Math.abs(dy) / (halfHeight + padding));
+  return [center[0] + dx * scale, center[1] + dy * scale];
+}
+
 function Pill({ x, y, width, label, className = "" }: { x: number; y: number; width: number; label: string; className?: string }) {
   return (
     <g className={className}>
@@ -84,11 +158,17 @@ function CashFlow({ spec }: { spec: VisualSpec }) {
 
 function MarketingMix({ spec }: { spec: VisualSpec }) {
   const labels = pick(spec.labels, ["Product", "Price", "Place", "Promotion"]);
+  const centre: Point = [320, 150];
+  const pills: Point[] = [[130, 66], [510, 66], [130, 234], [510, 234]];
   return <Svg title={spec.title} description="The four elements of the marketing mix surround the target customer and must work together.">
     <circle className="v-center" cx="320" cy="150" r="68" /><text className="v-center-label" x="320" y="144" textAnchor="middle">Target</text><text className="v-center-label" x="320" y="170" textAnchor="middle">customer</text>
     <Pill x={45} y={40} width={170} label={labels[0]} /><Pill x={425} y={40} width={170} label={labels[1]} />
     <Pill x={45} y={208} width={170} label={labels[2]} /><Pill x={425} y={208} width={170} label={labels[3]} />
-    <Arrow x1={215} y1={87} x2={266} y2={119} /><Arrow x1={425} y1={87} x2={374} y2={119} /><Arrow x1={215} y1={226} x2={266} y2={188} /><Arrow x1={425} y1={226} x2={374} y2={188} />
+    {pills.map((pill, index) => {
+      const from = rectangleBoundary(pill, 85, 26, centre);
+      const [, to] = trimLine(pill, centre, 0, 70);
+      return <Arrow key={labels[index]} x1={from[0]} y1={from[1]} x2={to[0]} y2={to[1]} />;
+    })}
   </Svg>;
 }
 
@@ -106,9 +186,10 @@ function ProductLifeCycle({ spec }: { spec: VisualSpec }) {
 
 function StakeholderMap({ spec }: { spec: VisualSpec }) {
   const labels = pick(spec.labels, ["Customers", "Employees", "Owners", "Suppliers", "Government", "Community"]);
-  const points = labels.map((_, index) => { const angle = -Math.PI / 2 + index * (Math.PI * 2 / labels.length); return [320 + Math.cos(angle) * 185, 150 + Math.sin(angle) * 108]; });
+  const centre: Point = [320, 150];
+  const points: Point[] = labels.map((_, index) => { const angle = -Math.PI / 2 + index * (Math.PI * 2 / labels.length); return [320 + Math.cos(angle) * 185, 150 + Math.sin(angle) * 108]; });
   return <Svg title={spec.title} description="A stakeholder map showing groups connected to a business, each with different interests.">
-    {points.map(([x,y])=><line className="v-line" key={`${x}-${y}`} x1="320" y1="150" x2={x} y2={y}/>) }
+    {points.map((point)=><LineBetweenCircles className="v-line" key={`${point[0]}-${point[1]}`} start={centre} end={point} startRadius={62} endRadius={36} />) }
     <circle className="v-center" cx="320" cy="150" r="62"/><text className="v-center-label" x="320" y="157" textAnchor="middle">Business</text>
     {points.map(([x,y],i)=><g key={labels[i]}><circle className="v-node" cx={x} cy={y} r="36"/><text className="v-small" x={x} y={y+4} textAnchor="middle">{labels[i]}</text></g>)}
   </Svg>;
@@ -116,9 +197,9 @@ function StakeholderMap({ spec }: { spec: VisualSpec }) {
 
 function Cycle({ spec, defaults }: { spec: VisualSpec; defaults: string[] }) {
   const labels = pick(spec.labels, defaults);
-  const positions = labels.map((_, index) => { const angle = -Math.PI / 2 + index * (Math.PI * 2 / labels.length); return [320 + Math.cos(angle) * 185, 150 + Math.sin(angle) * 100]; });
+  const positions: Point[] = labels.map((_, index) => { const angle = -Math.PI / 2 + index * (Math.PI * 2 / labels.length); return [320 + Math.cos(angle) * 185, 150 + Math.sin(angle) * 100]; });
   return <Svg title={spec.title} description={`${labels.join(", ")} form a repeating cycle.`}>
-    <ellipse className="v-cycle" cx="320" cy="150" rx="185" ry="100" />
+    {positions.map((position, index) => <ArrowBetweenCircles key={`${labels[index]}-${labels[(index + 1) % labels.length]}`} start={position} end={positions[(index + 1) % positions.length]} startRadius={48} endRadius={48} />)}
     {positions.map(([x,y],i)=><g key={labels[i]}><circle className="v-node" cx={x} cy={y} r="48"/><text className="v-small" x={x} y={y-3} textAnchor="middle"><tspan x={x}>{String(i+1).padStart(2,"0")}</tspan><tspan className="v-label" x={x} dy="20">{labels[i]}</tspan></text></g>)}
   </Svg>;
 }
@@ -134,17 +215,24 @@ function DesignMix({ spec }: { spec: VisualSpec }) {
 
 function Journey({ spec, defaults }: { spec: VisualSpec; defaults: string[] }) {
   const labels = pick(spec.labels, defaults);
-  const xs = labels.map((_,i)=>72+i*(496/(labels.length-1)));
+  const xs = labels.map((_,i)=>72+i*(496 / Math.max(1, labels.length - 1)));
   return <Svg title={spec.title} description={`${labels.join(", ")} shown as a connected journey.`}>
-    <line className="v-line" x1={xs[0]} y1="145" x2={xs[xs.length-1]} y2="145"/>
+    {xs.slice(0, -1).map((x, index) => <Arrow key={`${labels[index]}-${labels[index + 1]}`} x1={x + 34} y1={145} x2={xs[index + 1] - 34} y2={145} />)}
     {labels.map((label,i)=><g key={label}><circle className="v-node" cx={xs[i]} cy="145" r="32"/><text className="v-number" x={xs[i]} y="151" textAnchor="middle">{i+1}</text><text className="v-note" x={xs[i]} y={i%2===0?93:205} textAnchor="middle">{label}</text><line className="v-guide" x1={xs[i]} y1={i%2===0?105:177} x2={xs[i]} y2={i%2===0?113:185}/></g>)}
   </Svg>;
 }
 
 function CpuCycle({ spec }: { spec: VisualSpec }) {
   const labels = pick(spec.labels,["Fetch","Decode","Execute"]);
+  const fetch: Point = [144, 144];
+  const decode: Point = [320, 62];
+  const execute: Point = [496, 144];
+  const cpu: Point = [320, 219];
   return <Svg title={spec.title} description="The CPU repeatedly fetches an instruction, decodes it and executes it.">
-    <path className="v-cycle" d="M250 72 C370 20 520 80 500 165 C484 236 400 265 320 250 M275 250 C175 252 104 210 120 130 C134 65 194 43 250 54"/>
+    <ArrowBetweenRectangles start={fetch} end={decode} startHalfWidth={72} startHalfHeight={26} endHalfWidth={72} endHalfHeight={26} />
+    <ArrowBetweenRectangles start={decode} end={execute} startHalfWidth={72} startHalfHeight={26} endHalfWidth={72} endHalfHeight={26} />
+    <ArrowBetweenRectangles start={execute} end={cpu} startHalfWidth={72} startHalfHeight={26} endHalfWidth={67} endHalfHeight={35} />
+    <ArrowBetweenRectangles start={cpu} end={fetch} startHalfWidth={67} startHalfHeight={35} endHalfWidth={72} endHalfHeight={26} />
     <Pill x={72} y={118} width={144} label={labels[0]}/><Pill x={248} y={36} width={144} label={labels[1]}/><Pill x={424} y={118} width={144} label={labels[2]}/>
     <rect className="v-chip" x="253" y="184" width="134" height="70" rx="8"/><text className="v-center-label" x="320" y="226" textAnchor="middle">CPU</text>
   </Svg>;
@@ -162,9 +250,9 @@ function BinaryPlaceValue({ spec }: { spec: VisualSpec }) {
 }
 
 function NetworkTopology({ spec }: { spec: VisualSpec }) {
-  const labels=pick(spec.labels,["Switch","Device A","Device B","Device C","Device D"]); const pos=[[320,150],[120,60],[520,60],[120,240],[520,240]];
+  const labels=pick(spec.labels,["Switch","Device A","Device B","Device C","Device D"]); const pos: Point[]=[[320,150],[120,60],[520,60],[120,240],[520,240]];
   return <Svg title={spec.title} description="A star network topology where every device has its own connection to a central switch.">
-    {pos.slice(1).map(([x,y])=><line className="v-wire" key={`${x}`} x1="320" y1="150" x2={x} y2={y}/>)}
+    {pos.slice(1).map((point)=><LineBetweenRectangles className="v-wire" key={`${point[0]}-${point[1]}`} start={pos[0]} end={point} halfWidth={58} halfHeight={27} />)}
     {pos.map(([x,y],i)=><g key={labels[i]}><rect className={i===0?"v-chip":"v-panel"} x={x-58} y={y-27} width="116" height="54" rx="10"/><text className="v-label" x={x} y={y+5} textAnchor="middle">{labels[i]}</text></g>)}
   </Svg>;
 }
@@ -180,12 +268,19 @@ function SecurityLayers({ spec }: { spec: VisualSpec }) {
 
 function AlgorithmFlow({ spec }: { spec: VisualSpec }) {
   const labels=pick(spec.labels,["Start","Input mark","mark ≥ 40?","Display pass","Display retry","End"]);
+  const decision: Point = [380, 144];
+  const pass: Point = [540, 87];
+  const retry: Point = [540, 215];
+  const passFrom = diamondBoundary(decision, 60, 52, pass);
+  const retryFrom = diamondBoundary(decision, 60, 52, retry);
+  const passTo = rectangleBoundary(pass, 60, 25, decision);
+  const retryTo = rectangleBoundary(retry, 60, 25, decision);
   return <Svg title={spec.title} description="A flowchart using start and end, input, decision and output symbols.">
-    <rect className="v-flow" x="50" y="120" width="90" height="48" rx="24"/><text className="v-small" x="95" y="149" textAnchor="middle">{labels[0]}</text><Arrow x1={140} y1={144} x2={184} y2={144}/>
-    <path className="v-flow" d="M184 120 H290 L274 168 H168 Z"/><text className="v-small" x="229" y="149" textAnchor="middle">{labels[1]}</text><Arrow x1={290} y1={144} x2={320} y2={144}/>
+    <rect className="v-flow" x="50" y="120" width="90" height="48" rx="24"/><text className="v-small" x="95" y="149" textAnchor="middle">{labels[0]}</text><Arrow x1={142} y1={144} x2={176} y2={144}/>
+    <path className="v-flow" d="M184 120 H290 L274 168 H168 Z"/><text className="v-small" x="229" y="149" textAnchor="middle">{labels[1]}</text><Arrow x1={282} y1={144} x2={318} y2={144}/>
     <path className="v-flow" d="M380 92 L440 144 L380 196 L320 144 Z"/><text className="v-small" x="380" y="149" textAnchor="middle">{labels[2]}</text>
-    <Arrow x1={440} y1={144} x2={480} y2={88}/><text className="v-note" x="452" y="112">Yes</text><rect className="v-flow" x="480" y="62" width="120" height="50" rx="8"/><text className="v-small" x="540" y="92" textAnchor="middle">{labels[3]}</text>
-    <Arrow x1={440} y1={144} x2={480} y2={214}/><text className="v-note" x="450" y="190">No</text><rect className="v-flow" x="480" y="190" width="120" height="50" rx="8"/><text className="v-small" x="540" y="220" textAnchor="middle">{labels[4]}</text>
+    <Arrow x1={passFrom[0]} y1={passFrom[1]} x2={passTo[0]} y2={passTo[1]}/><text className="v-note" x="452" y="112">Yes</text><rect className="v-flow" x="480" y="62" width="120" height="50" rx="8"/><text className="v-small" x="540" y="92" textAnchor="middle">{labels[3]}</text>
+    <Arrow x1={retryFrom[0]} y1={retryFrom[1]} x2={retryTo[0]} y2={retryTo[1]}/><text className="v-note" x="450" y="190">No</text><rect className="v-flow" x="480" y="190" width="120" height="50" rx="8"/><text className="v-small" x="540" y="220" textAnchor="middle">{labels[4]}</text>
     <text className="v-caption" x="540" y="280" textAnchor="middle">Both paths continue to {labels[5]}</text>
   </Svg>;
 }
@@ -263,15 +358,20 @@ function PlanCreateReview({ spec }: { spec: VisualSpec }) {
 
 function ConceptWeb({ spec }: { spec: VisualSpec }) {
   const labels = pick(spec.labels, ["Big idea", "Point one", "Point two", "Point three", "Point four"]);
-  const [centre, ...nodes] = labels;
-  const positions = nodes.map((_, index) => {
+  const [centreLabel, ...nodes] = labels;
+  const centre: Point = [320, 150];
+  const positions: Point[] = nodes.map((_, index) => {
     const angle = -Math.PI / 2 + index * (Math.PI * 2 / nodes.length);
     return [320 + Math.cos(angle) * 205, 150 + Math.sin(angle) * 105];
   });
-  return <Svg title={spec.title} description={`${centre} connects to ${nodes.join(", ")}.`}>
-    {positions.map(([x, y], index) => <Arrow key={nodes[index]} x1={320} y1={150} x2={x} y2={y} />)}
+  return <Svg title={spec.title} description={`${centreLabel} connects to ${nodes.join(", ")}.`}>
+    {positions.map((position, index) => {
+      const [from] = trimLine(centre, position, 70, 0);
+      const to = rectangleBoundary(position, 70, 26, centre);
+      return <Arrow key={nodes[index]} x1={from[0]} y1={from[1]} x2={to[0]} y2={to[1]} />;
+    })}
     <circle className="v-center" cx="320" cy="150" r="68" />
-    <text className="v-center-label" x="320" y="156" textAnchor="middle">{centre}</text>
+    <text className="v-center-label" x="320" y="156" textAnchor="middle">{centreLabel}</text>
     {positions.map(([x, y], index) => <g key={nodes[index]}>
       <rect className="v-panel" x={x - 70} y={y - 26} width="140" height="52" rx="14" />
       <text className="v-small" x={x} y={y + 5} textAnchor="middle">{nodes[index]}</text>

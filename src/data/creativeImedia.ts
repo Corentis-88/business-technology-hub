@@ -299,6 +299,11 @@ export const creativeImediaCourse: Course = {
               paragraphs: [
                 "A useful work plan identifies activities, durations, milestones, deadlines, resources, responsibilities, dependencies and contingencies across production phases. A mind map develops linked ideas; a mood board communicates visual and stylistic inspiration.",
               ],
+              image: {
+                src: "images/creative-imedia/pre-production-studio.webp",
+                alt: "A media team develops ideas, mood boards, storyboards, scripts and schedules, checks a location and safety risks, then prepares camera, lighting and sound equipment.",
+                caption: "Pre-production makes the shoot possible: ideas, documents, people, locations, equipment and safety decisions must agree before recording starts.",
+              },
               visual: {
                 kind: "pre-production",
                 title: "Planning documents have different jobs",
@@ -507,6 +512,11 @@ export const creativeImediaCourse: Course = {
             {
               heading: "Identity with a purpose",
               paragraphs: ["A visual identity helps an organisation become recognisable, distinct and consistent while expressing its values to an audience. Components should work as a system rather than as unrelated attractive choices."],
+              image: {
+                src: "images/creative-imedia/visual-identity-production.webp",
+                alt: "A design team moves from audience mood images and sketches to a colour system, product photography, editable layers and matching poster and mobile graphics.",
+                caption: "Identity is a system: research guides the choices, the choices stay consistent, and the final graphics still fit different formats.",
+              },
               visual: { kind: "brand-board", title: "Visual identity system", caption: "Logo, colour, typography, imagery and tone should communicate one recognisable personality.", labels: ["Logo", "Colour palette", "Typography", "Imagery", "Tone of voice"] },
             },
             {
@@ -632,6 +642,11 @@ export const creativeImediaCourse: Course = {
             {
               heading: "Original characters",
               paragraphs: ["Plan physical and non-physical traits, role, personality, motivation, backstory, expressions, pose and body language. Genre tropes can guide audience expectations, but an original combination and visual treatment should avoid copying an existing character."],
+              image: {
+                src: "images/creative-imedia/character-comic-workflow.webp",
+                alt: "Students create silhouette thumbnails, expressions and poses, plan a storyboard, draw in editable layers, arrange comic panels, review reading order and export the final comic.",
+                caption: "An original comic grows through visible stages: character development, story planning, digital construction, page arrangement, reader testing and export.",
+              },
               visual: { kind: "comic-layout", title: "Character design communicates", caption: "Silhouette, expression, pose, costume and colour should reveal role and personality before dialogue is read.", labels: ["Silhouette", "Face", "Pose", "Costume", "Palette"] },
             },
             {
