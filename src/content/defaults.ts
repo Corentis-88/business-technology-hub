@@ -1,4 +1,4 @@
-import type { CustomPage, SiteSettings } from "../types";
+import type { CustomPage, HomeLayoutBlock, SiteSettings } from "../types";
 
 export const baselineSiteSettings: SiteSettings = {
   id: "mea-site-settings",
@@ -11,3 +11,8 @@ export const baselineSiteSettings: SiteSettings = {
 
 export const baselineCustomPages: CustomPage[] = [];
 
+export const baselineHomepageBlocks: HomeLayoutBlock[] = [
+  { id: "hero", type: "hero", visible: true },
+  { id: "courses", type: "courses", visible: true },
+  { id: "tools", type: "tools", visible: true },
+];

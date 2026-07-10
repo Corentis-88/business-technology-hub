@@ -57,8 +57,8 @@ The production output is written to `dist`.
 - an evidence-checked Pearson Business extended-writing lab covering Explain, Discuss, Analyse, Justify and Evaluate, including four completed Explain answers and three full-length original source-booklet cases with figures and question ladders
 - qualification-separated materials with offline official specifications, sample material, public past papers, mark schemes and examiner reports
 - responsive navigation, larger-text mode and print-friendly topic guides
-- a private-route, first-run Content Studio with drag-and-drop lesson sections, image compression and uploads, previews, undo/redo, automatic drafts, validation, backups and atomic GitHub publishing
-- simple editors for course and unit details, topic lessons, Enterprise easy-reading guides, vocabulary, quizzes, exam questions, materials, Pearson Business case studies, general site wording and new standalone pages
+- a private-route, first-run Content Studio that opens on a visual copy of the homepage, with drag-and-drop page blocks, click-to-edit controls, image compression and uploads, previews, undo/redo, automatic drafts, validation, backups and atomic GitHub publishing
+- a visual Revision Topic mode with draggable student-facing sections, plus detailed editors for course and unit settings, Enterprise easy-reading guides, vocabulary, quizzes, exam questions, materials, Pearson Business case studies and standalone pages
 
 ## Content and assessment safeguards
 

@@ -13,6 +13,11 @@ export type ContentValidationCode =
   | "business-blt-scope"
   | "blt-outside-business"
   | "missing-custom-page-text"
+  | "missing-home-block"
+  | "duplicate-home-block"
+  | "missing-home-block-text"
+  | "missing-home-image-alt"
+  | "bad-home-block-url"
   | "missing-simple-guide"
   | "missing-simple-section";
 
@@ -57,6 +62,44 @@ export function validateContentBundle(bundle: ContentBundle): ContentValidationI
   };
 
   registerId("site settings", bundle.siteSettings.id, "siteSettings.id");
+  const requiredHomepageBlocks = ["hero", "courses", "tools"] as const;
+  const builtInCounts = new Map<(typeof requiredHomepageBlocks)[number], number>();
+
+  (bundle.homepageBlocks ?? []).forEach((block, blockIndex) => {
+    const blockPath = `homepageBlocks[${blockIndex}]`;
+    registerId("homepage block", block.id, `${blockPath}.id`);
+
+    if (block.type === "hero" || block.type === "courses" || block.type === "tools") {
+      builtInCounts.set(block.type, (builtInCounts.get(block.type) ?? 0) + 1);
+      return;
+    }
+
+    if (!block.title.trim()) add("missing-home-block-text", `${blockPath}.title`, "Custom homepage block requires a title.");
+    if (block.type === "text" && !hasText(block.body)) {
+      add("missing-home-block-text", `${blockPath}.body`, "Homepage text block requires explanatory text.");
+    }
+    if (block.type === "callout") {
+      if (!block.body.trim()) add("missing-home-block-text", `${blockPath}.body`, "Homepage callout requires explanatory text.");
+      if (Boolean(block.buttonLabel?.trim()) !== Boolean(block.buttonHref?.trim())) {
+        add("missing-home-block-text", block.buttonLabel?.trim() ? `${blockPath}.buttonHref` : `${blockPath}.buttonLabel`, "Callout button label and destination must be supplied together.");
+      }
+      if (block.buttonHref?.trim() && !validResourceUrl(block.buttonHref)) {
+        add("bad-home-block-url", `${blockPath}.buttonHref`, "Homepage callout destination must be a safe HTTPS or site-relative URL.");
+      }
+    }
+    if (block.type === "image") {
+      if (!block.image.src.trim() || !validResourceUrl(block.image.src)) add("bad-home-block-url", `${blockPath}.image.src`, "Homepage image requires a safe HTTPS or site-relative URL.");
+      if (!block.image.alt.trim()) add("missing-home-image-alt", `${blockPath}.image.alt`, "Homepage image requires alternative text.");
+      if (!block.image.caption.trim()) add("missing-home-block-text", `${blockPath}.image.caption`, "Homepage image requires a caption.");
+    }
+  });
+
+  requiredHomepageBlocks.forEach((type) => {
+    const count = builtInCounts.get(type) ?? 0;
+    if (count === 0) add("missing-home-block", "homepageBlocks", `Homepage requires the built-in ${type} block.`);
+    if (count > 1) add("duplicate-home-block", "homepageBlocks", `Homepage may contain only one built-in ${type} block.`);
+  });
+
   const courseIds = new Set(bundle.courses.map((course) => course.id));
 
   bundle.courses.forEach((course, courseIndex) => {

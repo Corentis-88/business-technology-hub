@@ -236,6 +236,14 @@ export interface SiteSettings {
   logoAlt: string;
 }
 
+export type HomeLayoutBlock =
+  | { id: string; type: "hero"; visible: boolean }
+  | { id: string; type: "courses"; visible: boolean }
+  | { id: string; type: "tools"; visible: boolean }
+  | { id: string; type: "text"; visible: boolean; eyebrow?: string; title: string; body: string[] }
+  | { id: string; type: "callout"; visible: boolean; eyebrow?: string; title: string; body: string; buttonLabel?: string; buttonHref?: string }
+  | { id: string; type: "image"; visible: boolean; title: string; body?: string; image: { src: string; alt: string; caption: string } };
+
 export interface CustomPage {
   id: string;
   slug: string;
@@ -274,6 +282,7 @@ export interface ContentBundle {
   resources: ResourceLink[];
   practiceCases: PracticeCase[];
   siteSettings: SiteSettings;
+  homepageBlocks: HomeLayoutBlock[];
   customPages: CustomPage[];
   enterpriseSimpleGuides: SimpleTopicGuide[];
   enterpriseSimpleVisuals: Record<string, SimpleVisualSpec>;

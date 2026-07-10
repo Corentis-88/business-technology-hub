@@ -3,7 +3,7 @@ import { baselinePracticeCases } from "../data/extendedWriting";
 import { baselineResources } from "../data/resources";
 import { baselineEnterpriseSimpleGuides, baselineEnterpriseSimpleVisuals } from "../data/enterpriseSimple";
 import type { ContentBundle, EditableCourse, EditableTopicSection, TopicSection } from "../types";
-import { baselineCustomPages, baselineSiteSettings } from "./defaults";
+import { baselineCustomPages, baselineHomepageBlocks, baselineSiteSettings } from "./defaults";
 
 function slug(value: string) {
   return value
@@ -48,6 +48,7 @@ export function createEditableSnapshotFromBaselines(options: SnapshotOptions = {
     resources: structuredClone(baselineResources),
     practiceCases: structuredClone(baselinePracticeCases),
     siteSettings: structuredClone(baselineSiteSettings),
+    homepageBlocks: structuredClone(baselineHomepageBlocks),
     customPages: structuredClone(baselineCustomPages),
     enterpriseSimpleGuides: structuredClone(baselineEnterpriseSimpleGuides),
     enterpriseSimpleVisuals: structuredClone(baselineEnterpriseSimpleVisuals),

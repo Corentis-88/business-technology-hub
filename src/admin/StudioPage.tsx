@@ -22,6 +22,7 @@ const normaliseBundle = (value: ContentBundle): ContentBundle => {
   return {
     ...fallback,
     ...value,
+    homepageBlocks: value.homepageBlocks ?? fallback.homepageBlocks,
     enterpriseSimpleGuides: value.enterpriseSimpleGuides ?? fallback.enterpriseSimpleGuides,
     enterpriseSimpleVisuals: value.enterpriseSimpleVisuals ?? fallback.enterpriseSimpleVisuals,
   };
