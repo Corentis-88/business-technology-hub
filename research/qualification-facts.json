@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0",
+  "research_checked": "2026-07-09",
+  "school": {
+    "name": "Manchester Enterprise Academy",
+    "short_name": "MEA",
+    "address": "Simonsway, Wythenshawe, Manchester, M22 9RH",
+    "trust": "Prospere Learning Trust",
+    "vision": "A Fantastic Future for All",
+    "logo_asset": "branding/mea-official-logo.svg",
+    "observed_brand_colours": ["#D4D600", "#FFFFFF", "#292D85"]
+  },
+  "qualifications": [
+    {
+      "id": "business-1bs0",
+      "awarding_body": "Pearson Edexcel",
+      "title": "GCSE (9-1) Business",
+      "code": "1BS0",
+      "type": "GCSE",
+      "linear": true,
+      "calculator": true,
+      "components": [
+        {
+          "code": "1BS0/01",
+          "title": "Investigating small business",
+          "theme": "Theme 1",
+          "duration_minutes": 105,
+          "raw_marks": 90,
+          "weight_percent": 50,
+          "sections": [{"name": "A", "marks": 35}, {"name": "B", "marks": 30}, {"name": "C", "marks": 25}]
+        },
+        {
+          "code": "1BS0/02",
+          "title": "Building a business",
+          "theme": "Theme 2",
+          "duration_minutes": 105,
+          "raw_marks": 90,
+          "weight_percent": 50,
+          "sections": [{"name": "A", "marks": 35}, {"name": "B", "marks": 30}, {"name": "C", "marks": 25}]
+        }
+      ],
+      "assessment_objectives_percent": {"AO1": 35, "AO2": 35, "AO3": 30},
+      "quantitative_minimum_percent": 10,
+      "mea_answer_method": {
+        "id": "business_1bs0_blt",
+        "name": "Because, Leads To, Therefore",
+        "short_name": "BLT",
+        "scope": "Pearson Business 1BS0 only",
+        "one_complete_chain_for_marks": 3,
+        "steps": ["because", "leads_to", "therefore"],
+        "sentence_pattern": "[business point] because [reason]. This leads to [consequence]. Therefore, [final business effect].",
+        "because_may_start_sentence": false,
+        "use_in_other_qualifications": false
+      },
+      "topic_groups": [
+        "1.1 Enterprise and entrepreneurship",
+        "1.2 Spotting a business opportunity",
+        "1.3 Putting a business idea into practice",
+        "1.4 Making the business effective",
+        "1.5 Understanding external influences on business",
+        "2.1 Growing the business",
+        "2.2 Making marketing decisions",
+        "2.3 Making operational decisions",
+        "2.4 Making financial decisions",
+        "2.5 Making human resource decisions"
+      ],
+      "grade_scale": ["9", "8", "7", "6", "5", "4", "3", "2", "1", "U"]
+    },
+    {
+      "id": "enterprise-j837",
+      "awarding_body": "Cambridge OCR",
+      "title": "Level 1/Level 2 Cambridge National in Enterprise and Marketing",
+      "code": "J837",
+      "type": "Technical Award",
+      "guided_learning_hours": 120,
+      "total_ums": 200,
+      "terminal_exam_code": "R067",
+      "components": [
+        {"code": "R067", "title": "Enterprise and marketing concepts", "mode": "exam", "duration_minutes": 75, "calculator": true, "raw_marks": 70, "ums": 80, "weight_percent": 40, "glh": 48},
+        {"code": "R068", "title": "Design a business proposal", "mode": "NEA", "tasks": 6, "raw_marks": 60, "ums": 60, "weight_percent": 30, "glh": 36, "assessment_glh_range": [10, 14]},
+        {"code": "R069", "title": "Market and pitch a business proposal", "mode": "NEA", "tasks": 5, "raw_marks": 60, "ums": 60, "weight_percent": 30, "glh": 36, "assessment_glh_range": [10, 14]}
+      ],
+      "r067_topic_areas": [
+        "Characteristics, risk and reward for enterprise",
+        "Market research to target a specific customer",
+        "What makes a product financially viable",
+        "Creating a marketing mix to support a product",
+        "Factors to consider when starting up and running an enterprise"
+      ],
+      "grade_scale": ["D*2", "D2", "M2", "P2", "D1", "M1", "P1", "U"],
+      "overall_ums_boundaries": [180, 160, 140, 120, 100, 80, 60, 0],
+      "current_assignment_changes_from": "2027-01",
+      "current_assignment_rules": {
+        "r068_research_tools": "two: one primary and one secondary",
+        "r068_product_designs": 1,
+        "r069_promotional_materials": "two: one digital and one non-digital"
+      }
+    },
+    {
+      "id": "computer-science-j277",
+      "awarding_body": "Cambridge OCR",
+      "title": "GCSE (9-1) Computer Science",
+      "code": "J277",
+      "type": "GCSE",
+      "linear": true,
+      "calculator": false,
+      "components": [
+        {"code": "J277/01", "title": "Computer systems", "duration_minutes": 90, "raw_marks": 80, "weight_percent": 50, "topic_range": "1.1-1.6"},
+        {"code": "J277/02", "title": "Computational thinking, algorithms and programming", "duration_minutes": 90, "raw_marks": 80, "weight_percent": 50, "topic_range": "2.1-2.5", "section_a_marks": 50, "section_b_marks": 30}
+      ],
+      "assessment_objectives_percent": {"AO1": 30, "AO2": 40, "AO3": 30},
+      "topic_groups": [
+        "1.1 Systems architecture",
+        "1.2 Memory and storage",
+        "1.3 Computer networks, connections and protocols",
+        "1.4 Network security",
+        "1.5 Systems software",
+        "1.6 Ethical, legal, cultural and environmental impacts",
+        "2.1 Algorithms",
+        "2.2 Programming fundamentals",
+        "2.3 Producing robust programs",
+        "2.4 Boolean logic",
+        "2.5 Programming languages and IDEs"
+      ],
+      "programming_experience_required": true,
+      "separately_marked_programming_nea": false,
+      "grade_scale": ["9", "8", "7", "6", "5", "4", "3", "2", "1", "U"]
+    },
+    {
+      "id": "creative-imedia-j834",
+      "awarding_body": "Cambridge OCR",
+      "title": "Level 1/Level 2 Cambridge National in Creative iMedia",
+      "code": "J834",
+      "type": "Technical Award",
+      "guided_learning_hours": 120,
+      "total_qualification_time_hours": 155,
+      "total_ums": 200,
+      "terminal_exam_code": "R093",
+      "mea_optional_unit": "R095",
+      "components": [
+        {"code": "R093", "title": "Creative iMedia in the media industry", "mode": "exam", "duration_minutes": 90, "raw_marks": 70, "ums": 80, "weight_percent": 40, "glh": 48},
+        {"code": "R094", "title": "Visual identity and digital graphics", "mode": "NEA", "tasks": 2, "task_marks": [20, 30], "raw_marks": 50, "ums": 50, "weight_percent": 25, "glh": 30, "assessment_glh_range": [10, 12]},
+        {"code": "R095", "title": "Characters and comics", "mode": "NEA", "tasks": 3, "task_marks": [20, 34, 16], "raw_marks": 70, "ums": 70, "weight_percent": 35, "glh": 42, "assessment_glh_range": [12, 15]}
+      ],
+      "r093_topic_areas": [
+        "The media industry",
+        "Factors influencing product design",
+        "Pre-production planning",
+        "Distribution considerations"
+      ],
+      "r095_process": ["plan", "create", "review"],
+      "r095_required_output": "an original character and a multiple-page comic",
+      "grade_scale": ["D*2", "D2", "M2", "P2", "D1", "M1", "P1", "U"],
+      "overall_ums_boundaries": [180, 160, 140, 120, 100, 80, 60, 0]
+    }
+  ],
+  "summer_2027_exams": [
+    {"date": "2027-05-10", "session": "AM", "code": "J277/01", "duration_minutes": 90},
+    {"date": "2027-05-12", "session": "PM", "code": "1BS0/01", "duration_minutes": 105},
+    {"date": "2027-05-19", "session": "PM", "code": "J277/02", "duration_minutes": 90},
+    {"date": "2027-05-21", "session": "PM", "code": "1BS0/02", "duration_minutes": 105, "clash_group": "2027-05-21-PM"},
+    {"date": "2027-05-21", "session": "PM", "code": "R067/01", "duration_minutes": 75, "clash_group": "2027-05-21-PM"},
+    {"date": "2027-06-14", "session": "PM", "code": "R093/01", "duration_minutes": 90}
+  ],
+  "governance": {
+    "live_cambridge_national_assignments": "never store, expose or use for practice",
+    "candidate_exemplars": "teacher-only; never show students",
+    "public_sample_assignments": "permitted for practice subject to awarding-body terms",
+    "historical_grade_boundaries": "label by series; never present as predictions"
+  }
+}
