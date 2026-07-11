@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { allTopics, courses } from "../data/courses";
+import { enterpriseSimpleGuides } from "../data/enterpriseSimple";
+import { practiceCases } from "../data/extendedWriting";
 import { officialDocumentHref, resources } from "../data/resources";
 import { searchTopics } from "../lib/search";
 
@@ -52,6 +54,16 @@ describe("qualification coverage", () => {
       const quizIds = topics.flatMap((topic) => topic.quiz.map((question) => question.id));
       expect(new Set(quizIds).size).toBe(quizIds.length);
     }
+  });
+
+  it("keeps published learning content in clean UK English", () => {
+    const content = JSON.stringify({ courses, enterpriseSimpleGuides, practiceCases, resources });
+    const americanSpellings = /\b(?:analyze|analyzed|analyzing|behavior|behaviors|catalog|centered|color|colored|colors|customize|customized|customizing|favorite|fulfill|fulfillment|labor|modeling|neighbor|organize|organized|organizing|prioritize|prioritized|summarize|summarized|visualize|visualized)\b/i;
+
+    expect(content).not.toMatch(americanSpellings);
+    expect(content).not.toMatch(/\s+[,.!?]/);
+    expect(content).not.toMatch(/(?:â|Ã|Â|�)/);
+    expect(content).not.toContain("Point because reason");
   });
 });
 

@@ -32,10 +32,10 @@ export const businessCourse: Course = {
     pattern:
       "[Business point] because [reason]. This leads to [consequence]. Therefore, [final business effect].",
     rules: [
-      "One complete BLT forms the linked explanation expected in one three-mark Explain answer.",
+      "One complete BLT provides the linked explanation needed for a three-mark 'Explain' answer.",
       "Write the business point before the word because; never start a sentence with it.",
-      "This leads to must state a genuine consequence, not repeat the reason.",
-      "Therefore must finish with a relevant effect such as revenue, cost, profit, cash flow, market share, productivity, reputation or survival.",
+      "'This leads to' must state a genuine consequence rather than repeat the reason.",
+      "'Therefore' must finish with a relevant effect, such as revenue, cost, profit, cash flow, market share, productivity, reputation or survival.",
       "Use BLT as the reasoning engine in longer answers, then add the application, balance and judgement required by the command word.",
       "BLT is MEA's teaching scaffold; Pearson awards marks for knowledge, application, analysis and evaluation rather than for writing the initials.",
     ],
@@ -60,7 +60,7 @@ export const businessCourse: Course = {
             {
               heading: "Change creates business opportunities",
               paragraphs: [
-                "Business ideas change as technology develops, customer wants move on and existing products become obsolete. An entrepreneur watches these changes and spots an unmet need.",
+                "Business ideas change as technology develops, customer wants evolve and existing products become obsolete. An entrepreneur watches these changes and spots an unmet need.",
                 "Change creates opportunity, but it also creates threats: a successful product today may lose demand when a cheaper, faster or more convenient alternative appears.",
               ],
               visual: {
@@ -229,7 +229,7 @@ export const businessCourse: Course = {
                 "Aims give direction. A start-up may prioritise survival and financial security before profit, sales, market share or social objectives. Objectives change with circumstances.",
                 "Revenue is money earned from sales, while profit is what remains after total costs. Fixed costs do not change directly with output; total variable costs do.",
               ],
-              formula: "Revenue = price × quantity; total cost = fixed cost + variable cost; profit = revenue − total cost",
+              formula: "Revenue = price × quantity; total cost = fixed costs + total variable costs; profit = revenue − total cost",
               visual: {
                 kind: "pitch-journey",
                 title: "From sales to profit or loss",
@@ -348,14 +348,14 @@ export const businessCourse: Course = {
               heading: "Stakeholders",
               paragraphs: [
                 "Owners, employees, customers, suppliers, government and the local community have different objectives and influence. Their interests can conflict but they are interdependent.",
-                "A wage increase may support employee motivation but raise owner costs; a successful decision weighs power, objectives and the long-term relationship.",
+                "A wage increase may support employee motivation but raise the business's costs; a successful decision weighs power, objectives and the long-term relationship.",
               ],
               visual: { kind: "stakeholder-map", title: "Stakeholder relationships", caption: "Decisions create linked benefits, costs and conflicts around the business.", labels: ["Owners", "Employees", "Customers", "Suppliers", "Community", "Government"] },
             },
             {
               heading: "Technology and legislation",
               paragraphs: [
-                "E-commerce, social media, digital communication and electronic payment can expand reach and improve productivity, but bring investment, training, security and competitive pressures.",
+                "E-commerce, social media, digital communication and electronic payment can expand a business's reach and improve productivity, but they also create investment, training, security and competitive pressures.",
                 "Consumer, employment and health-and-safety law can raise compliance costs while protecting people and strengthening trust. The effect depends on the required change and the business's resources.",
               ],
               visual: {
@@ -533,7 +533,7 @@ export const businessCourse: Course = {
               heading: "Production and technology",
               paragraphs: [
                 "Job production creates one customised item; batch produces groups; flow uses continuous standardised stages. The choice trades flexibility against speed, consistency and unit cost.",
-                "Technology may improve precision and productivity, but needs investment, maintenance and training and may reduce flexibility or employment.",
+                "Technology may improve precision and productivity, but it requires investment, maintenance and training. It may also reduce flexibility or employment.",
               ],
               visual: {
                 kind: "stakeholder-map",

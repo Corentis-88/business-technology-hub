@@ -160,7 +160,7 @@ export function VisualSiteEditor({ bundle, onChange, assets, onAssetsChange }: V
 
   return <section className="visual-site-editor">
     <header className="visual-editor-heading">
-      <div><span>Visual site editor</span><h1>Move the page, then edit what you see</h1><p>Choose a page, select any block in the preview and use the panel on the right. Drag the large handles or use the arrow buttons.</p></div>
+      <div><span>Visual site editor</span><h1>Move sections, then edit what you see</h1><p>Choose a page, select any block in the preview and use the panel on the right. Drag the large handles or use the arrow buttons to change the order.</p></div>
       <div className="visual-editor-modes" role="group" aria-label="Page to edit">
         <button type="button" className={mode === "homepage" ? "active" : ""} onClick={() => setMode("homepage")}><LayoutDashboard />Homepage</button>
         <button type="button" className={mode === "topic" ? "active" : ""} onClick={() => setMode("topic")}><BookOpen />Revision topic</button>
@@ -249,7 +249,7 @@ function HomepageInspector({ block, updateBlock, addBlock, assets, uploadImage, 
 function TopicInspector({ section, update, addSection }: { section?: EditableTopicSection; update: (updater: (section: EditableTopicSection) => void) => void; addSection: () => void }) {
   const paragraphText = section?.paragraphs.join("\n\n") ?? "";
   return <>
-    <header><span>Revision topic</span><h2>{section?.heading || "Choose a section"}</h2><p>Click a revision topic section in the preview, then edit its student-facing words below.</p></header>
+    <header><span>Revision topic</span><h2>{section?.heading || "Choose a section"}</h2><p>Select a revision topic section in the preview, then edit the text that students will see.</p></header>
     <div className="visual-inspector-body">
       {section ? <div className="visual-inspector-fields"><Field label="Section heading"><input value={section.heading} onChange={(event) => update((draft) => { draft.heading = event.target.value; })} /></Field><Field label="Explanation paragraphs"><textarea rows={12} value={paragraphText} onChange={(event) => update((draft) => { draft.paragraphs = event.target.value.split(/\n\s*\n/).map((item) => item.trim()).filter(Boolean); })} /><small>Leave a blank line between paragraphs.</small></Field><Field label="Bullet points (one per line)"><textarea rows={7} value={listToLines(section.bullets)} onChange={(event) => update((draft) => { const items = linesToList(event.target.value); draft.bullets = items.length ? items : undefined; })} /></Field></div> : <p className="visual-inspector-empty">Choose a section in the preview to edit it.</p>}
       <button type="button" className="visual-add-section" onClick={addSection}><ListPlus />Add a new section</button>

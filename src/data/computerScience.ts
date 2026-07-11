@@ -63,7 +63,7 @@ export const computerScienceCourse: Course = {
             {
               heading: "The CPU and its components",
               paragraphs: [
-                "The central processing unit executes instructions. In a Von Neumann system, instructions and data share memory.",
+                "The central processing unit executes instructions. In a von Neumann system, instructions and data share memory.",
                 "The control unit coordinates the cycle, the ALU performs arithmetic and logic, and cache stores frequently needed data close to the CPU.",
               ],
               bullets: [
@@ -96,7 +96,7 @@ export const computerScienceCourse: Course = {
             { term: "Embedded system", definition: "A computer built into a larger device for a dedicated purpose." },
           ],
           commonMistakes: [
-            "Saying the Program Counter stores the program; it stores the address of the next instruction.",
+            "Saying the program counter stores the program; it stores the address of the next instruction.",
             "Claiming that doubling clock speed always doubles performance.",
             "Describing every small computer as embedded without identifying its dedicated role.",
           ],
@@ -198,7 +198,7 @@ export const computerScienceCourse: Course = {
             {
               heading: "Representing text, images and sound",
               paragraphs: [
-                "Character sets map characters to binary codes. More bits allow more unique characters. Bitmap images store pixels plus metadata; higher resolution and colour depth usually improve detail or colour range but increase size.",
+                "Character sets map characters to binary codes. More bits allow more unique characters. Bitmap images store pixels and metadata. A higher resolution usually improves detail, while a greater colour depth provides a wider range of colours, but both increase the file size.",
                 "Digital sound samples an analogue wave. A higher sample rate records more measurements each second; a higher bit depth records each measurement more precisely.",
               ],
               bullets: [
@@ -424,7 +424,7 @@ export const computerScienceCourse: Course = {
             },
             {
               heading: "Open-source and proprietary software",
-              paragraphs: ["Open-source software makes source code available under its licence, supporting inspection and modification. Proprietary software keeps source code controlled by its owner. Compare licence cost, support, compatibility, customisation and responsibility for maintenance."],
+              paragraphs: ["Open-source software makes source code available under its licence, supporting inspection and modification. Proprietary software keeps source code under its owner's control. Compare licensing costs, support, compatibility, customisation and responsibility for maintenance."],
             },
           ],
           keyTerms: [
@@ -458,7 +458,7 @@ export const computerScienceCourse: Course = {
           code: "2.1",
           title: "Algorithms",
           summary: "Use computational thinking to design, trace, correct and compare algorithms, searches and sorts.",
-          keywords: ["abstraction", "decomposition", "algorithmic thinking", "input process output", "pseudocode", "OCR ERL", "flowchart", "trace table", "sequence", "selection", "iteration", "linear search", "binary search", "bubble sort", "merge sort", "insertion sort"],
+          keywords: ["abstraction", "decomposition", "algorithmic thinking", "input-process-output", "pseudocode", "OCR ERL", "flowchart", "trace table", "sequence", "selection", "iteration", "linear search", "binary search", "bubble sort", "merge sort", "insertion sort"],
           sections: [
             {
               heading: "Computational thinking and design",
@@ -472,7 +472,7 @@ export const computerScienceCourse: Course = {
             },
             {
               heading: "Tracing and comparing",
-              paragraphs: ["Dry-run an algorithm using a trace table. Record values only when they change and follow selection and loop boundaries exactly. Compare algorithms using correctness, number of steps, memory needs and suitability for the data."],
+              paragraphs: ["Dry run an algorithm using a trace table. Record values only when they change and follow selection and loop boundaries exactly. Compare algorithms using correctness, number of steps, memory needs and suitability for the data."],
               visual: { kind: "plan-create-review", title: "Trace one instruction at a time", caption: "Read the next instruction, update any value, record the change, then repeat until the algorithm ends.", labels: ["Read line", "Update value", "Record change", "Next line"] },
             },
             {
@@ -552,7 +552,7 @@ export const computerScienceCourse: Course = {
             },
             {
               heading: "Errors and test data",
-              paragraphs: ["A syntax error breaks the language's rules; a logic error allows execution but produces an incorrect result. Normal data should be accepted, boundary data tests exact limits, invalid data is the correct type but outside rules, and erroneous data is the wrong type."],
+              paragraphs: ["A syntax error breaks the language's rules; a logic error allows execution but produces an incorrect result. Normal data should be accepted. Boundary data tests the exact limits. Invalid data is the correct type but outside the rules, while erroneous data is the wrong type."],
               bullets: ["A test plan records test data, reason/type, expected result, actual result and action.", "Iterative testing happens throughout development; final testing checks the completed solution."],
             },
           ],

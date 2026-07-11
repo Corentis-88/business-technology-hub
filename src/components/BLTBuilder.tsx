@@ -154,7 +154,7 @@ export function BLTBuilder() {
   return (
     <div className="blt-builder">
       <div className="blt-intro">
-        <div><span className="eyebrow">MEA method · Pearson Business only</span><h2>Build an answer with BLT</h2><p>Make the business point first. The word <strong>because must never start a sentence</strong>.</p></div>
+        <div><span className="eyebrow">MEA method · Pearson Business only</span><h2>Build an answer with BLT</h2><p>Make the business point first. Do not start a sentence with the word <strong>“because”</strong>.</p></div>
         <div className="blt-pattern" aria-label="The three parts of a BLT answer">
           <span><small>1. Make your point and explain why</small><b>Training may improve service because staff know how to help customers.</b></span>
           <i>→</i>

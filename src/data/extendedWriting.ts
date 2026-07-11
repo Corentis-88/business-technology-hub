@@ -13,14 +13,14 @@ export const baselinePracticeCases: PracticeCase[] = [
     context: [
       "LoopLab Repairs is a phone and games-controller repair kiosk in a busy indoor market in Manchester. It was started three years ago by sole trader Safiya Rahman after she completed an electronics apprenticeship. Customers can bring a damaged device to the kiosk without an appointment. Most repairs are completed on the same day and include a six-month guarantee.",
       "The average repair price is £42 and replacement parts cost an average of £16 per job. LoopLab completes about 28 repairs each week. Demand is highest after school and on Saturdays, when the waiting time can reach 35 minutes. Safiya estimates that six potential customers leave the queue during a typical week, although some may return later or buy a replacement device elsewhere.",
-      "Safiya wants to reduce waiting times. An online booking and diagnostic system would cost £1,800, including staff training. It would ask customers about the fault before they arrive and could spread bookings across quieter periods. The supplier requires the full payment immediately. LoopLab's latest cash-flow forecast shows a closing balance of £2,250.",
+      "Safiya wants to reduce waiting times. An online booking and diagnostic system would cost £1,800, including staff training. It would ask customers about the fault before they arrive and could spread bookings across quieter periods. The supplier requires payment in full immediately. LoopLab's latest cash-flow forecast shows a closing balance of £2,250.",
       "The other option is to employ a part-time assistant on Saturdays for £110 per week. The assistant has repair experience but would need Safiya to check completed work at first. A nearby repair shop has recently started advertising one-hour screen replacements. Online reviews for LoopLab praise its helpful explanations, but several mention queues at the kiosk.",
     ],
     evidence: [
-      { id: "wait", label: "Waiting time", quote: "35 minutes", meaning: "Shows the operational problem is significant and may lose customers." },
-      { id: "lost", label: "Lost demand", quote: "six potential customers", meaning: "Can be converted into potential revenue or contribution, but the estimate is uncertain." },
-      { id: "margin", label: "Contribution", quote: "£26 contribution", meaning: "£42 selling price minus £16 parts cost gives a useful financial case hook." },
-      { id: "cash", label: "Cash position", quote: "£2,250", meaning: "Lets the conclusion judge affordability rather than making a generic claim." },
+      { id: "wait", label: "Waiting time", quote: "35 minutes", meaning: "This shows that the operational problem is significant and may cause LoopLab to lose customers." },
+      { id: "lost", label: "Lost demand", quote: "six potential customers", meaning: "This figure can be converted into potential revenue or contribution, but the estimate is uncertain." },
+      { id: "margin", label: "Contribution", quote: "£26 contribution", meaning: "The £42 selling price minus the £16 parts cost provides a useful financial link to the case study." },
+      { id: "cash", label: "Cash position", quote: "£2,250", meaning: "This allows the conclusion to judge affordability instead of making a generic claim." },
     ],
     chartTitle: "Weekly demand and queue evidence",
     chart: [
@@ -38,7 +38,7 @@ export const baselinePracticeCases: PracticeCase[] = [
     questionLadder: [
       { command: "Outline", marks: 2, prompt: "Outline one risk to Safiya of operating LoopLab as a sole trader." },
       { command: "Analyse", marks: 6, prompt: "Analyse the importance to LoopLab of providing good customer service." },
-      { command: "Analyse", marks: 6, prompt: "Analyse one impact on LoopLab of the nearby repair shop increasing competition." },
+      { command: "Analyse", marks: 6, prompt: "Analyse one impact on LoopLab of increased competition from the nearby repair shop." },
       { command: "Justify", marks: 9, prompt: "Justify which option LoopLab should choose: the online system or a part-time assistant." },
     ],
     strands: [
@@ -64,13 +64,13 @@ export const baselinePracticeCases: PracticeCase[] = [
       "GreenStep Mobile Cycles is a proposed cycle-servicing business owned by trainee mechanic Daniel Okoro. Instead of renting a workshop, Daniel would travel to customers' homes within an eight-mile radius of Wythenshawe. A standard service would cost £32 and use about £11 of oil, cables and other consumables. More complex repairs would be quoted separately.",
       "Daniel used an online questionnaire shared by two local cycling groups. Of the 120 people who replied, 63% identified at-home convenience as an important reason for choosing a repair service. However, most respondents already cycled regularly and only 18 people were aged over 55. Two established repair shops operate nearby. They have workshops where several bicycles can be repaired at the same time.",
       "Daniel plans to group appointments by postcode to reduce travelling time and fuel use. He expects to complete five standard services on a full working day, but this assumes that customers are at home and each bicycle needs only the work booked. Wet winter weather usually reduces local cycling. It may also make travel between appointments slower.",
-      "Daniel has £4,800 of savings. He could use £2,600 to buy a second-hand electric van and tools, or pay £1,250 to join a national mobile-repair franchise. The franchise provides booking software, training and a recognised brand, but charges 8% of monthly sales revenue. Daniel wants GreenStep to build repeat maintenance bookings and become his full-time income within one year.",
+      "Daniel has £4,800 of savings. He could use £2,600 to buy a second-hand electric van and tools, or pay £1,250 to join a national mobile-repair franchise. The franchise provides booking software, training and a recognised brand, but charges 8% of monthly sales revenue. Daniel wants GreenStep to build repeat maintenance bookings and provide his full-time income within one year.",
     ],
     evidence: [
-      { id: "survey", label: "Research", quote: "63%", meaning: "Supports demand, but the sample and distribution method still need evaluation." },
-      { id: "contribution", label: "Unit finance", quote: "£21 contribution", meaning: "Shows how each service could contribute towards travel and fixed costs." },
-      { id: "radius", label: "Convenience", quote: "eight-mile radius", meaning: "Creates differentiation but also creates travel time and fuel costs." },
-      { id: "savings", label: "Finance", quote: "£4,800", meaning: "Provides a buffer, but it is finite if winter demand is weak." },
+      { id: "survey", label: "Research", quote: "63%", meaning: "This supports the case for demand, but the sample and distribution method still need evaluation." },
+      { id: "contribution", label: "Unit finance", quote: "£21 contribution", meaning: "This shows how each service could contribute towards travel and fixed costs." },
+      { id: "radius", label: "Convenience", quote: "eight-mile radius", meaning: "This creates differentiation, but it also creates travel time and fuel costs." },
+      { id: "savings", label: "Finance", quote: "£4,800", meaning: "This provides a buffer, but the amount is finite if winter demand is weak." },
     ],
     chartTitle: "Selected questionnaire results",
     chart: [
@@ -121,10 +121,10 @@ export const baselinePracticeCases: PracticeCase[] = [
       "The price of recycled polymer has increased by 18% following supply shortages. Orbit could continue using its current material and raise its price by £3, or change to a cheaper polymer that passed the legal safety tests but performed less well in Orbit's drop test. Managers must decide how far very high quality should remain the basis of the company's growth.",
     ],
     evidence: [
-      { id: "quality", label: "Customer priority", quote: "71%", meaning: "Supports a quality-based competitive advantage, but comes from previous customers." },
-      { id: "returns", label: "Returns", quote: "2.1%", meaning: "Suggests reliable products and lower replacement or complaint costs." },
-      { id: "price", label: "Price gap", quote: "£15 price gap", meaning: "Quality supports a premium, but price-sensitive customers may choose the rival." },
-      { id: "materials", label: "Input cost", quote: "18%", meaning: "Tests whether quality remains affordable and profitable." },
+      { id: "quality", label: "Customer priority", quote: "71%", meaning: "This supports a quality-based competitive advantage, but the evidence comes from previous customers." },
+      { id: "returns", label: "Returns", quote: "2.1%", meaning: "This suggests that products are reliable and that replacement or complaint costs may be lower." },
+      { id: "price", label: "Price gap", quote: "£15 price gap", meaning: "Quality supports a premium price, but price-sensitive customers may choose the rival." },
+      { id: "materials", label: "Input cost", quote: "18%", meaning: "This tests whether maintaining quality remains affordable and profitable." },
     ],
     chartTitle: "Customer survey and performance",
     chart: [
@@ -157,7 +157,7 @@ export const baselinePracticeCases: PracticeCase[] = [
       { label: "Judgement", text: "Quality remains central only while the target segment continues to value protection enough to pay the premium." },
     ],
     model: [
-      "Quality is important to Orbit's continued growth because 71% prioritise protection when buying a case. This leads to a strong quality-based USP and helps the business justify charging £34. The 2.1% return rate also suggests that few products fail, which may protect reviews and reduce replacement costs. Therefore, quality can support repeat purchases and continued online growth.",
+      "Quality is important to Orbit's continued growth because 71% of respondents prioritise protection when buying a case. This leads to a strong quality-based USP and helps the business justify charging £34. The 2.1% return rate also suggests that few products fail, which may protect reviews and reduce replacement costs. Therefore, quality can support repeat purchases and continued online growth.",
       "However, Orbit has a £15 price gap over its closest rival and recycled-polymer costs have risen by 18%. Maintaining the highest specification could force another price increase or reduce profit margins. This leads to a risk that price-sensitive customers choose the £19 rival even if its protection is weaker. Promotion, cost control and communicating the environmental benefit may therefore be equally important.",
       "Overall, quality remains the most important factor while Orbit targets customers who prioritise protection and the 2.1% return rate remains low. However, the 24% online sales growth will continue only if customers still believe the extra protection is worth the £15 price gap. Orbit should protect the features customers notice while redesigning less important elements to absorb part of the 18% material-cost rise.",
     ],

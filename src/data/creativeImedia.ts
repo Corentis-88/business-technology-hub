@@ -18,7 +18,7 @@ export const creativeImediaCourse: Course = {
   accent: "#A855F7",
   icon: "palette",
   assessmentSummary:
-    "R093 is a 1 hour 30 minute external exam worth 40%. R094 Visual identity and digital graphics is worth 25%. MEA's optional unit R095 Characters and comics is worth 35%.",
+    "R093 is a one-hour, 30-minute external exam worth 40%. R094 Visual identity and digital graphics is worth 25%. MEA's optional unit, R095 Characters and comics, is worth 35%.",
   aliases: [
     "iMedia",
     "creative media",
@@ -38,7 +38,7 @@ export const creativeImediaCourse: Course = {
       description:
         "Knowledge of industry sectors, design influences, pre-production planning and distribution.",
       assessment:
-        "External written examination. Part A is 10 marks across the specification; Part B is 60 marks based on one scenario and includes extended responses.",
+        "External written examination. Part A is worth 10 marks and covers the specification; Part B is worth 60 marks, is based on one scenario and includes extended responses.",
       weight: "40% · 70 marks · 1 hour 30 minutes",
       topics: [
         topic({
@@ -225,7 +225,7 @@ export const creativeImediaCourse: Course = {
           ],
           examTips: [
             "Use choice → meaning → audience effect for media-code answers.",
-            "Make context specific: 'easier' or 'more appealing' needs an explanation of what changes and why.",
+            "Make your answer context-specific: 'easier' or 'more appealing' needs an explanation of what changes and why.",
           ],
           quiz: [
             {
@@ -323,8 +323,8 @@ export const creativeImediaCourse: Course = {
             {
               heading: "Legal, regulatory and safety",
               paragraphs: [
-                "Creators must consider copyright, intellectual property, Creative Commons licence conditions, privacy, permission, data protection and defamation. ASA regulates advertising, Ofcom broadcast and communications, BBFC film classification and PEGI game classification.",
-                "A risk assessment identifies hazards, risk and controls. A location recce records whether a place is suitable, accessible, safe and practical before production.",
+                "Creators must consider copyright, intellectual property, Creative Commons licence conditions, privacy, permission, data protection and defamation. The ASA regulates advertising, Ofcom regulates broadcasting and communications, the BBFC classifies films and PEGI age-rates games.",
+                "A risk assessment identifies hazards, risks and control measures. A location recce records whether a place is suitable, accessible, safe and practical before production.",
               ],
               visual: {
                 kind: "pitch-journey",
@@ -337,7 +337,7 @@ export const creativeImediaCourse: Course = {
           keyTerms: [
             { term: "Milestone", definition: "A significant checkpoint showing that a stage or deliverable has been completed." },
             { term: "Contingency", definition: "A planned response if an identified problem disrupts production." },
-            { term: "Location recce", definition: "A visit or investigation that records a location's practical, creative and safety suitability." },
+            { term: "Location recce", definition: "A visit or investigation that records whether a location is suitable in practical, creative and safety terms." },
             { term: "Wireframe", definition: "A plan of screen layout, content placement and navigation." },
           ],
           commonMistakes: [
@@ -414,7 +414,7 @@ export const creativeImediaCourse: Course = {
             {
               heading: "Platforms and audience",
               paragraphs: [
-                "Distribution choices depend on the product, audience access, reach, cost, interaction and technical limits. Online delivery can update and reach widely but depends on devices and connectivity; physical media may provide ownership or offline access but costs more to manufacture and distribute.",
+                "Distribution choices depend on the product, audience access, reach, cost, interaction and technical limits. Online delivery can be updated and can reach a wide audience, but it depends on devices and connectivity. Physical media may provide ownership or offline access, but it costs more to manufacture and distribute.",
               ],
               visual: {
                 kind: "pitch-journey",
@@ -445,7 +445,7 @@ export const creativeImediaCourse: Course = {
             },
           ],
           keyTerms: [
-            { term: "Native format", definition: "A software's editable project format, often preserving layers or timelines." },
+            { term: "Native format", definition: "The editable project format used by a piece of software, often preserving layers or timelines." },
             { term: "Raster graphic", definition: "An image built from pixels." },
             { term: "Vector graphic", definition: "A graphic built from mathematical paths and shapes that can scale cleanly." },
             { term: "Compression", definition: "Reducing the amount of data needed to store or transmit a media file." },
@@ -454,7 +454,7 @@ export const creativeImediaCourse: Course = {
             "Recommending a format without connecting it to the platform or audience.",
             "Assuming vector graphics are made from pixels.",
             "Using the exported distribution copy as the only editable master.",
-            "Saying higher quality is always the best choice regardless of loading or storage limits.",
+            "Saying that higher quality is always the best choice, regardless of loading or storage limits.",
           ],
           examTips: [
             "Use property → technical effect → suitability for this platform.",
@@ -542,7 +542,7 @@ export const creativeImediaCourse: Course = {
             { id: "imedia-r094-1-q2", prompt: "What helps people recognise an organisation across different products?", options: ["Changing the logo every time", "Using the visual identity consistently", "Using every available font", "Removing the organisation's name"], answer: 1, explanation: "Using the same identity elements across different products helps the audience recognise the organisation." },
           ],
           examQuestions: [
-            { id: "imedia-r094-1-e1", command: "Practise", marks: 4, prompt: "For the fictional Northlight youth astronomy club, justify one typography choice and one colour choice.", guidance: ["Use a fictional practice brief only.", "Explain the intended meaning and practical readability.", "Connect each choice to the audience or purpose."], model: "A clean geometric sans-serif could suggest modern science while staying clear at small social-media sizes. Deep navy could suggest the night sky, with bright cyan accents providing contrast and an energetic feel for younger members." },
+            { id: "imedia-r094-1-e1", command: "Practise", marks: 4, prompt: "For the fictional Northlight youth astronomy club, justify one typography choice and one colour choice.", guidance: ["Use a fictional practice brief only.", "Explain the intended meaning and practical readability.", "Connect each choice to the audience or purpose."], model: "A clean geometric sans-serif could suggest modern science while staying clear at small sizes on social media. Deep navy could suggest the night sky, with bright cyan accents providing contrast and an energetic feel for younger members." },
           ],
           durationMinutes: 55,
         }),
@@ -658,7 +658,7 @@ export const creativeImediaCourse: Course = {
               heading: "Production-ready planning",
               paragraphs: ["Interpret the fictional brief and audience, create a detailed character profile and design development, outline a story arc, write a usable script and storyboard panels with shot, text and action detail. Plan software and assets, including ownership and each asset's contribution."],
               visual: { kind: "pre-production", title: "A comic needs production-ready documents", caption: "The character profile, script, storyboard, asset log and work plan answer different questions for the person building the comic.", labels: ["Comic purpose", "Character profile", "Script", "Storyboard", "Asset / work plan"] },
-              example: "Fictional practice brief: plan a four-page comic in which an original young inventor solves a neighbourhood energy problem. Do not reuse this as live NEA work.",
+              example: "Fictional practice brief: plan a four-page comic in which an original young inventor solves a neighbourhood energy problem. Do not reuse this work in a live NEA assignment.",
             },
             {
               heading: "Assessment integrity",
@@ -671,7 +671,7 @@ export const creativeImediaCourse: Course = {
             { term: "Onomatopoeia", definition: "A word whose sound suggests the action, such as 'crash' or 'buzz'." },
             { term: "Story arc", definition: "The progression through setup, development, climax and resolution." },
           ],
-          commonMistakes: ["Using a premade character and making only small edits.", "Producing shallow character planning with appearance but no personality or motivation.", "Listing asset sources without explaining contribution.", "Creating a sequence that reads like a narrated storyboard rather than a comic."],
+          commonMistakes: ["Using a pre-made character and making only small edits.", "Planning only a character's appearance, without developing their personality or motivation.", "Listing asset sources without explaining how each asset contributes to the product.", "Creating a sequence that reads like a narrated storyboard rather than a comic."],
           examTips: ["Practise character turnarounds, expression sheets and annotated design iterations using fictional briefs.", "Test reading order with someone who has not seen the plan before."],
           quiz: [
             { id: "imedia-r095-1-q1", prompt: "What is the main purpose of the gutter between comic panels?", options: ["To store source URLs", "To separate panels and suggest a change in time or action", "To replace every caption", "To show the client's logo"], answer: 1, explanation: "The gutter separates two moments. The reader works out what happens between the panels." },
@@ -686,7 +686,7 @@ export const creativeImediaCourse: Course = {
           id: "imedia-r095-2",
           code: "R095 Create",
           title: "Create characters and comics",
-          summary: "Use purposeful digital techniques to produce an original character, effective comic pages and correct editable and distribution files.",
+          summary: "Use purposeful digital techniques to produce an original character, effective comic pages and suitable editable and distribution files.",
           keywords: ["character creation", "digital drawing", "asset", "background", "panel", "lettering", "speech bubble", "story flow", "editable component", "native file", "print export", "digital export", "resolution", "dimensions", "technical evidence"],
           sections: [
             {
@@ -696,7 +696,7 @@ export const creativeImediaCourse: Course = {
             },
             {
               heading: "Translate plans into a comic",
-              paragraphs: ["Follow the script and storyboard while improving choices when production reveals a better solution. Maintain clear reading order, varied purposeful panels, consistent character appearance, readable text and enough visual storytelling that narration does not carry everything."],
+              paragraphs: ["Follow the script and storyboard, but improve your choices if production reveals a better solution. Maintain a clear reading order, use varied and purposeful panels, keep the character's appearance consistent and make the text readable. Use enough visual storytelling so that narration does not have to carry the whole story."],
               visual: { kind: "comic-layout", title: "A comic is more than a storyboard", caption: "Use panel rhythm, expressive art, bubbles, captions and sound words to create a finished reader experience.", labels: ["Sequence", "Pace", "Expression", "Dialogue", "Impact"] },
             },
             {
@@ -738,7 +738,7 @@ export const creativeImediaCourse: Course = {
             },
             {
               heading: "Evaluate fitness",
-              paragraphs: ["Review how well the product meets the fictional client's purpose and audience. Consider aesthetics, readability, engagement, character communication, panel flow and constraints. Use evidence from the output and testing rather than unsupported praise."],
+              paragraphs: ["Review how well the product meets the fictional client's purpose and suits its audience. Consider aesthetics, readability, engagement, character communication, panel flow and constraints. Use evidence from the output and testing rather than unsupported praise."],
             },
             {
               heading: "Improvement versus development",
@@ -756,7 +756,7 @@ export const creativeImediaCourse: Course = {
             { term: "Further development", definition: "A proposed future extension beyond the current product." },
             { term: "Constraint", definition: "A limitation affecting what can be produced, such as time, assets, software or format." },
           ],
-          commonMistakes: ["Checking only whether every brief item exists, not technical properties.", "Saying the comic is effective because it looks good without evidence.", "Calling a sequel an improvement to the existing pages.", "Proposing a change without explaining how it benefits audience or purpose."],
+          commonMistakes: ["Checking only whether every item from the brief is present, without checking technical properties.", "Saying the comic is effective because it looks good, without giving evidence.", "Calling a sequel an improvement to the existing pages.", "Proposing a change without explaining how it benefits the audience or supports the purpose."],
           examTips: ["Practise reviews with annotated fictional outputs and measurable evidence.", "Use evidence → effect → specific action for each proposal."],
           quiz: [
             { id: "imedia-r095-3-q1", prompt: "Which option improves the existing comic rather than developing a new product?", options: ["Create a sequel", "Add a new spin-off character", "Increase the contrast of speech bubbles that are hard to read", "Release a monthly series"], answer: 2, explanation: "Making the speech bubbles easier to read improves the existing comic. The other options create or extend future products." },

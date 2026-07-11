@@ -8,7 +8,7 @@ describe("visual studio editor", () => {
     const bundle = createEditableSnapshotFromBaselines();
     render(<VisualSiteEditor bundle={bundle} onChange={vi.fn()} assets={[]} onAssetsChange={vi.fn()} />);
 
-    expect(screen.getByRole("heading", { name: "Move the page, then edit what you see" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Move sections, then edit what you see" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Homepage" })).toHaveClass("active");
     expect(screen.getByRole("button", { name: "Drag Hero and search" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Drag Qualifications" })).toBeInTheDocument();
