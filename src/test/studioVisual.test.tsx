@@ -11,7 +11,9 @@ describe("visual studio editor", () => {
     const bundle = createEditableSnapshotFromBaselines();
     render(<VisualSiteEditor bundle={bundle} onChange={vi.fn()} assets={[]} onAssetsChange={vi.fn()} />);
 
-    expect(screen.getByRole("heading", { name: "Move sections, then edit what you see" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Click a section to edit it" })).toBeInTheDocument();
+    expect(screen.getByRole("list", { name: "How to use the visual editor" })).toHaveTextContent("Choose a page");
+    expect(screen.getByRole("list", { name: "How to use the visual editor" })).toHaveTextContent("Check desktop and mobile");
     expect(screen.getByRole("button", { name: "Homepage" })).toHaveClass("active");
     expect(screen.getByRole("button", { name: "Drag Hero and search" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Drag Qualifications" })).toBeInTheDocument();
@@ -34,7 +36,7 @@ describe("visual studio editor", () => {
     expect(screen.getByRole("button", { name: "Make a copy of Change creates business opportunities" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Delete Change creates business opportunities" })).toBeInTheDocument();
     expect(screen.getAllByRole("button", { name: "Add a section here" })).toHaveLength(bundle.courses[0].units[0].topics[0].sections.length);
-    expect(screen.getByText("Add an image")).toBeInTheDocument();
+    expect(screen.getByText("Drop an image here or choose a file")).toBeInTheDocument();
   });
 });
 
@@ -47,6 +49,8 @@ describe("beginner Studio navigation", () => {
     expect(screen.getByText(/not live until you publish/i)).toBeInTheDocument();
     fireEvent.click(screen.getAllByRole("button", { name: /Add something new/ })[0]);
     expect(screen.getByRole("heading", { name: "What would you like to add?" })).toBeInTheDocument();
+    expect(screen.getByRole("navigation", { name: "Simple editing steps" })).toHaveTextContent("Edit");
+    expect(screen.getByRole("navigation", { name: "Simple editing steps" })).toHaveTextContent("Publish");
     expect(screen.getByRole("button", { name: /A new page/ })).toBeInTheDocument();
     expect(screen.getAllByRole("button", { name: /Revision content/ }).length).toBeGreaterThan(0);
     expect(screen.getByRole("button", { name: /A material or link/ })).toBeInTheDocument();
@@ -64,6 +68,8 @@ describe("visual extra-page builder", () => {
     fireEvent.click(screen.getByRole("button", { name: /Study guide/ }));
 
     expect(screen.getByRole("textbox", { name: "Page title" })).toHaveValue("New page");
+    expect(screen.getByRole("list", { name: "Page building steps" })).toHaveTextContent("Name the page");
+    expect(screen.getByRole("list", { name: "Page building steps" })).toHaveTextContent("Preview the page");
     expect(screen.getByRole("button", { name: /Drag New explanation/ })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Drag Key points/ })).toBeInTheDocument();
     expect(screen.getAllByRole("button", { name: /Move section down/ }).length).toBeGreaterThan(0);

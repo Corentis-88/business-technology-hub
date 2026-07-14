@@ -1,4 +1,4 @@
-import { BookOpen, Boxes, BriefcaseBusiness, CheckCircle2, ChevronLeft, ChevronRight, CloudUpload, Download, FilePlus2, FolderKanban, History, Home, ImagePlus, LayoutDashboard, LogOut, Redo2, RotateCcw, Save, Settings, Undo2, Upload } from "lucide-react";
+import { BookOpen, Boxes, BriefcaseBusiness, CheckCircle2, ChevronLeft, ChevronRight, CloudUpload, Download, Eye, FilePlus2, FolderKanban, History, Home, ImagePlus, LayoutDashboard, LogOut, Redo2, RotateCcw, Save, Settings, Undo2, Upload } from "lucide-react";
 import { useRef, useState } from "react";
 import type { AdminSession, PublishResult } from "./lib";
 import type { ContentBundle } from "../types";
@@ -55,6 +55,7 @@ export function StudioWorkspace(props: StudioWorkspaceProps) {
   const importInput = useRef<HTMLInputElement>(null);
   const topicCount = props.bundle.courses.reduce((total, course) => total + course.units.reduce((sum, unit) => sum + unit.topics.length, 0), 0);
   const sectionCount = props.bundle.courses.reduce((total, course) => total + course.units.reduce((unitTotal, unit) => unitTotal + unit.topics.reduce((topicTotal, topic) => topicTotal + topic.sections.length, 0), 0), 0);
+  const isEditing = ["visual", "content", "materials", "cases", "pages", "settings", "add"].includes(view);
 
   const importBackup = async (file?: File) => {
     if (!file) return;
@@ -92,6 +93,11 @@ export function StudioWorkspace(props: StudioWorkspaceProps) {
           <details className="studio-sidebar__backup"><summary>Backups and reset</summary><button type="button" onClick={() => downloadJson(props.bundle, `mea-content-backup-${new Date().toISOString().slice(0, 10)}.json`)}><Download /> Download a backup</button><button type="button" onClick={() => importInput.current?.click()}><Upload /> Restore a backup</button><input ref={importInput} type="file" accept="application/json,.json" hidden onChange={(event) => void importBackup(event.target.files?.[0])} /><button className="studio-danger-link" type="button" onClick={() => { if (window.confirm("Replace this draft with the current live website? Download a backup first if you may need these changes later.")) void props.onReset(); }}><RotateCcw /> Replace draft with live site</button></details>
         </aside>
         <main className="studio-main">
+          {view !== "dashboard" && <nav className="studio-task-path" aria-label="Simple editing steps">
+            <button type="button" className={view === "publish" ? "done" : view === "visual" ? "" : "active"} onClick={() => setView("visual")}><span>1</span><strong>Edit</strong><small>Choose and change content</small></button>
+            <button type="button" className={view === "visual" ? "active" : ""} onClick={() => setView("visual")}><span>2</span><strong>Preview</strong><small>Check desktop and mobile</small></button>
+            <button type="button" className={view === "publish" ? "active" : ""} onClick={() => setView("publish")}><span>3</span><strong>Publish</strong><small>Make the draft live</small></button>
+          </nav>}
           {notice && <div className="studio-message studio-message--notice"><CheckCircle2 />{notice}</div>}
           {view === "visual" && <VisualSiteEditor bundle={props.bundle} onChange={props.onChange} assets={props.assets} onAssetsChange={props.onAssetsChange} />}
           {view === "dashboard" && <section className="studio-dashboard">
@@ -107,6 +113,7 @@ export function StudioWorkspace(props: StudioWorkspaceProps) {
           {view === "pages" && <PageEditor bundle={props.bundle} onChange={props.onChange} assets={props.assets} onAssetsChange={props.onAssetsChange} />}
           {view === "settings" && <SettingsEditor bundle={props.bundle} onChange={props.onChange} />}
           {view === "publish" && <PublishPanel bundle={props.bundle} issues={props.validationIssues} pendingAssets={props.assets.length} onPublish={props.onPublish} onSaveToken={props.onSaveToken} loadSavedToken={props.loadSavedToken} />}
+          {isEditing && view !== "add" && <div className="studio-next-step" role="region" aria-label="Next step"><div><Eye /><span><strong>Your changes are saved as a draft.</strong><small>Check the page on desktop and mobile before making it live.</small></span></div><div><button type="button" onClick={() => setView("visual")}><Eye /> Preview changes</button><button className="studio-next-step__primary" type="button" onClick={() => setView("publish")}><CloudUpload /> Continue to publish</button></div></div>}
         </main>
       </div>
     </div>

@@ -235,6 +235,26 @@
 .studio-empty > svg { width: 42px; height: 42px; color: var(--studio-blue); margin-bottom: 5px; }
 .studio-empty h1, .studio-empty h2, .studio-empty p { margin: 0; }
 
+.studio-task-path { max-width: 980px; margin: 0 auto 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.studio-task-path button { min-height: 64px; border: 1px solid var(--studio-line); border-radius: 13px; padding: 9px 12px; display: grid; grid-template-columns: 30px 1fr; grid-template-rows: auto auto; column-gap: 9px; text-align: left; color: var(--studio-muted); background: #fff; font: inherit; cursor: pointer; }
+.studio-task-path button > span { grid-row: 1 / 3; align-self: center; width: 28px; height: 28px; border-radius: 99px; display: grid; place-items: center; color: #fff; background: #8692a4; font-size: .74rem; font-weight: 900; }
+.studio-task-path strong { align-self: end; color: var(--studio-ink); font-size: .82rem; }
+.studio-task-path small { font-size: .68rem; }
+.studio-task-path button.active { border-color: var(--studio-blue); background: #eef6ff; box-shadow: 0 0 0 2px rgba(36,105,180,.08); }
+.studio-task-path button.active > span, .studio-task-path button.done > span { background: var(--studio-blue); }
+.studio-next-step { max-width: 980px; margin: 28px auto 0; border: 1px solid #c9dbee; border-radius: 16px; padding: 15px; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #f4f9ff; }
+.studio-next-step > div { display: flex; align-items: center; gap: 10px; }
+.studio-next-step span { display: grid; gap: 2px; }
+.studio-next-step small { color: var(--studio-muted); }
+.studio-next-step button { border: 1px solid #bfcfe0; border-radius: 9px; padding: 9px 12px; display: inline-flex; align-items: center; gap: 6px; color: var(--studio-blue-dark); background: #fff; font: inherit; font-size: .76rem; font-weight: 800; cursor: pointer; }
+.studio-next-step button svg, .studio-next-step > div > svg { width: 18px; }
+.studio-next-step .studio-next-step__primary { border-color: var(--studio-green); color: #fff; background: var(--studio-green); }
+.page-builder__steps { margin: 0 0 20px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; list-style: none; }
+.page-builder__steps li { padding: 11px 13px; border: 1px solid #dfe2eb; border-radius: 12px; display: flex; align-items: center; gap: 9px; color: #60697b; background: #fff; }
+.page-builder__steps li span { width: 27px; height: 27px; border-radius: 99px; display: grid; place-items: center; color: #fff; background: #8b93a2; font-size: .72rem; font-weight: 900; }
+.page-builder__steps li.active { border-color: #30358f; color: #252a73; background: #f2f2ff; }
+.page-builder__steps li.active span, .page-builder__steps li.done span { background: #30358f; }
+
 .studio-course-tabs { display: flex; gap: 7px; border-bottom: 1px solid var(--studio-line); margin-bottom: 22px; overflow-x: auto; }
 .studio-case-picker { display: flex; align-items: end; justify-content: space-between; gap: 15px; border-radius: 15px; background: #eaf2fb; padding: 14px; margin-bottom: 18px; }
 .studio-case-picker label { display: grid; gap: 6px; min-width: min(480px, 70%); font-size: .77rem; font-weight: 800; }
@@ -362,6 +382,14 @@
   .studio-advanced summary > span strong { white-space: nowrap; }
   .studio-advanced nav { margin: 0; padding: 0; border: 0; display: flex; }
   .studio-main { padding: 25px 14px 65px; }
+  .studio-task-path { margin-bottom: 18px; }
+  .studio-task-path button { grid-template-columns: 26px 1fr; padding: 8px; }
+  .studio-task-path button > span { width: 25px; height: 25px; }
+  .studio-task-path small { display: none; }
+  .studio-next-step { align-items: stretch; flex-direction: column; }
+  .studio-next-step > div:last-child { display: grid; grid-template-columns: 1fr 1fr; }
+  .page-builder__steps { grid-template-columns: 1fr; }
+  .page-builder__steps li { padding: 8px 11px; }
   .studio-page-heading { margin-bottom: 22px; }
   .studio-page-heading h1 { font-size: 2rem; }
   .studio-quick-grid, .studio-stat-grid, .studio-form-grid, .studio-two-columns, .studio-settings-layout { grid-template-columns: 1fr; }

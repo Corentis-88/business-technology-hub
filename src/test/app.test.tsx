@@ -73,17 +73,22 @@ describe("student journeys", () => {
     expect(screen.queryByRole("heading", { name: "Enterprise and Marketing specification" })).not.toBeInTheDocument();
   });
 
-  it("offers an Enterprise-only easier-reading mode in the requested tab position", () => {
+  it("offers Enterprise reading support and R068 coursework help in the requested tab positions", () => {
     renderApp("/course/enterprise/unit/enterprise-r068/topic/enterprise-r068-1");
     const tabs = screen.getAllByRole("tab");
-    expect(tabs.slice(0, 3).map((tab) => tab.textContent)).toEqual(["Learn", "Say it simpler", "Concept map"]);
+    expect(tabs.slice(0, 4).map((tab) => tab.textContent)).toEqual(["Learn", "Say it simpler", "Coursework assist", "Concept map"]);
     fireEvent.click(screen.getByRole("tab", { name: "Say it simpler" }));
     expect(screen.getByRole("heading", { name: "Let’s take this step by step" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Research you can give good reasons for" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Words you need to know" })).toBeInTheDocument();
     expect(screen.getAllByText("Picture it").length).toBeGreaterThan(0);
     fireEvent.keyDown(screen.getByRole("tablist"), { key: "ArrowRight" });
-    expect(screen.getByRole("tab", { name: "Concept map" })).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByRole("tab", { name: "Coursework assist" })).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByRole("heading", { name: "Complete market research to aid decisions" })).toBeInTheDocument();
+    expect(screen.getByText(/OCR does not set a word count/i)).toBeInTheDocument();
+    cleanup();
+    renderApp("/course/enterprise/unit/enterprise-r067/topic/enterprise-r067-1");
+    expect(screen.queryByRole("tab", { name: "Coursework assist" })).not.toBeInTheDocument();
     cleanup();
     renderApp("/course/business/unit/business-theme-1/topic/business-1-1");
     expect(screen.queryByRole("tab", { name: "Say it simpler" })).not.toBeInTheDocument();
