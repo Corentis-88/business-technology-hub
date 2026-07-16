@@ -30,8 +30,8 @@ describe("versioned editable content seam", () => {
       "page-section subject-section",
       "page-section hub-tools",
     ]);
-    expect(screen.getByRole("heading", { name: "MEA Business and Technology Hub" })).toBeInTheDocument();
-    expect(screen.getByText("Helping you easily learn and revise topics at MEA in Business and Technology")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Business & Technology Hub" })).toBeInTheDocument();
+    expect(screen.getByText("Helping you easily learn and revise Business and Technology qualifications")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Start with the course you're working towards" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "What would help you most today?" })).toBeInTheDocument();
     expect(container.querySelector(".home-custom-block")).toBeNull();
@@ -45,7 +45,7 @@ describe("versioned editable content seam", () => {
     expect(snapshot.courses).toHaveLength(baselineCourses.length);
     expect(snapshot.resources).toHaveLength(baselineResources.length);
     expect(snapshot.practiceCases).toHaveLength(baselinePracticeCases.length);
-    expect(snapshot.siteSettings.siteName).toBe("MEA Business and Technology Hub");
+    expect(snapshot.siteSettings.siteName).toBe("Business & Technology Hub");
     expect(snapshot.homepageBlocks.map((block) => block.type)).toEqual(["hero", "courses", "tools"]);
     expect(snapshot.homepageBlocks).not.toBe(baselineHomepageBlocks);
     expect(snapshot.customPages).toEqual([]);

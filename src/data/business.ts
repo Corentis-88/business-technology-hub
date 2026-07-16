@@ -28,7 +28,7 @@ export const businessCourse: Course = {
     id: "business-blt",
     name: "Because, Leads To, Therefore",
     shortName: "BLT",
-    scope: "MEA answer method for Pearson Edexcel GCSE Business 1BS0 only",
+    scope: "BLT answer method for Pearson Edexcel GCSE Business 1BS0 only",
     pattern:
       "[Business point] because [reason]. This leads to [consequence]. Therefore, [final business effect].",
     rules: [
@@ -37,7 +37,7 @@ export const businessCourse: Course = {
       "'This leads to' must state a genuine consequence rather than repeat the reason.",
       "'Therefore' must finish with a relevant effect, such as revenue, cost, profit, cash flow, market share, productivity, reputation or survival.",
       "Use BLT as the reasoning engine in longer answers, then add the application, balance and judgement required by the command word.",
-      "BLT is MEA's teaching scaffold; Pearson awards marks for knowledge, application, analysis and evaluation rather than for writing the initials.",
+      "BLT is the teaching scaffold used by this hub; Pearson awards marks for knowledge, application, analysis and evaluation rather than for writing the initials.",
     ],
   },
   aliases: ["business", "gcse business", "edexcel business", "pearson business", "1bs0"],

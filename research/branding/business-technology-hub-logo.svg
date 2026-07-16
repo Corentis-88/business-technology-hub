@@ -1,0 +1,22 @@
+<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hub-bg" x1="18" y1="12" x2="105" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#343AA5"/>
+      <stop offset="1" stop-color="#171A54"/>
+    </linearGradient>
+    <linearGradient id="hub-accent" x1="35" y1="34" x2="85" y2="86" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F56A"/>
+      <stop offset="1" stop-color="#D4D600"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="112" height="112" rx="28" fill="url(#hub-bg)"/>
+  <path d="M25 35C36 31 47 34 57 42V86C48 78 37 75 25 79V35Z" fill="white"/>
+  <path d="M95 35C84 31 73 34 63 42V86C72 78 83 75 95 79V35Z" fill="white" opacity=".92"/>
+  <path d="M60 42V88" stroke="url(#hub-accent)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M36 51H47M36 61H49M73 51H84M71 61H84" stroke="#343AA5" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="36" cy="51" r="3.5" fill="url(#hub-accent)"/>
+  <circle cx="49" cy="61" r="3.5" fill="url(#hub-accent)"/>
+  <circle cx="84" cy="51" r="3.5" fill="url(#hub-accent)"/>
+  <circle cx="71" cy="61" r="3.5" fill="url(#hub-accent)"/>
+  <path d="M38 92H82" stroke="url(#hub-accent)" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -27,7 +27,7 @@ export interface ContentValidationIssue {
   message: string;
 }
 
-const requiredBusinessBltScope = "MEA answer method for Pearson Edexcel GCSE Business 1BS0 only";
+const requiredBusinessBltScope = "BLT answer method for Pearson Edexcel GCSE Business 1BS0 only";
 
 function hasText(values: string[]) {
   return values.some((value) => value.trim().length > 0);
@@ -37,7 +37,7 @@ function validResourceUrl(href: string) {
   const value = href.trim();
   if (!value || value.startsWith("//")) return false;
   try {
-    const url = new URL(value, "https://mea.local/");
+    const url = new URL(value, "https://hub.local/");
     return url.protocol === "https:";
   } catch {
     return false;

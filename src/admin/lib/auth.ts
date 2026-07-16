@@ -1,6 +1,6 @@
 import { base64ToBytes, bytesToBase64, equalBytes, requireWebCrypto, toArrayBuffer, utf8 } from "./encoding";
 
-export const ADMIN_CREDENTIALS_STORAGE_KEY = "mea-admin-credentials-v1";
+export const ADMIN_CREDENTIALS_STORAGE_KEY = "hub-admin-credentials-v1";
 export const DEFAULT_PBKDF2_ITERATIONS = 310_000;
 
 export interface AdminCredentialRecord {

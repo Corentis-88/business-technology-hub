@@ -74,7 +74,7 @@ export function StudioWorkspace(props: StudioWorkspaceProps) {
   return (
     <div className="studio-shell">
       <header className="studio-topbar">
-        <div className="studio-topbar__brand"><img src={`${import.meta.env.BASE_URL}branding/mea-official-logo.svg`} alt="" /><div><strong>MEA Content Studio</strong><span>Simple, safe website editing</span></div></div>
+        <div className="studio-topbar__brand"><img src={`${import.meta.env.BASE_URL}branding/business-technology-hub-logo.svg`} alt="" /><div><strong>Content Studio</strong><span>Simple, safe website editing</span></div></div>
         <div className="studio-save-state"><Save /><span><strong>Draft saved</strong><small>{props.draftStatus} · not live until you publish</small></span></div>
         <div className="studio-topbar__actions">
           <button type="button" onClick={props.onUndo} disabled={!props.canUndo} title="Undo last change"><Undo2 /><span>Undo</span></button>
@@ -90,7 +90,7 @@ export function StudioWorkspace(props: StudioWorkspaceProps) {
             <summary><Settings /><span><strong>More content and tools</strong><small>Pages, links, case studies and settings</small></span><ChevronRight className="studio-advanced__chevron" /></summary>
             <nav aria-label="More editing tools">{advancedNav.map(({ id, label, description, icon: Icon }) => <button type="button" key={id} className={view === id ? "active" : ""} onClick={() => setView(id)}><Icon /><span><strong>{label}</strong><small>{description}</small></span></button>)}</nav>
           </details>
-          <details className="studio-sidebar__backup"><summary>Backups and reset</summary><button type="button" onClick={() => downloadJson(props.bundle, `mea-content-backup-${new Date().toISOString().slice(0, 10)}.json`)}><Download /> Download a backup</button><button type="button" onClick={() => importInput.current?.click()}><Upload /> Restore a backup</button><input ref={importInput} type="file" accept="application/json,.json" hidden onChange={(event) => void importBackup(event.target.files?.[0])} /><button className="studio-danger-link" type="button" onClick={() => { if (window.confirm("Replace this draft with the current live website? Download a backup first if you may need these changes later.")) void props.onReset(); }}><RotateCcw /> Replace draft with live site</button></details>
+          <details className="studio-sidebar__backup"><summary>Backups and reset</summary><button type="button" onClick={() => downloadJson(props.bundle, `content-hub-backup-${new Date().toISOString().slice(0, 10)}.json`)}><Download /> Download a backup</button><button type="button" onClick={() => importInput.current?.click()}><Upload /> Restore a backup</button><input ref={importInput} type="file" accept="application/json,.json" hidden onChange={(event) => void importBackup(event.target.files?.[0])} /><button className="studio-danger-link" type="button" onClick={() => { if (window.confirm("Replace this draft with the current live website? Download a backup first if you may need these changes later.")) void props.onReset(); }}><RotateCcw /> Replace draft with live site</button></details>
         </aside>
         <main className="studio-main">
           {view !== "dashboard" && <nav className="studio-task-path" aria-label="Simple editing steps">

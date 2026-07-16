@@ -32,6 +32,6 @@ describe("guided topic journey", () => {
     fireEvent.click(screen.getByRole("button", { name: /^Review/ }));
     fireEvent.click(screen.getByRole("button", { name: "Teach me again" }));
     expect(screen.getByRole("tab", { name: "Learn" })).toHaveAttribute("aria-selected", "true");
-    await waitFor(() => expect(localStorage.getItem("mea-revision-hub-state-v1")).toContain('"status":"revisit"'));
+    await waitFor(() => expect(localStorage.getItem("business-technology-hub-state-v1")).toContain('"status":"revisit"'));
   });
 });

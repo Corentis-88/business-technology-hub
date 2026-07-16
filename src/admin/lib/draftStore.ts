@@ -1,6 +1,6 @@
-export const ADMIN_DRAFT_DATABASE = "mea-admin-studio";
+export const ADMIN_DRAFT_DATABASE = "hub-admin-studio";
 export const ADMIN_DRAFT_STORE = "drafts";
-export const ADMIN_DRAFT_FALLBACK_PREFIX = "mea-admin-draft-v1:";
+export const ADMIN_DRAFT_FALLBACK_PREFIX = "hub-admin-draft-v1:";
 
 export interface DraftRecord<T = unknown> {
   id: string;

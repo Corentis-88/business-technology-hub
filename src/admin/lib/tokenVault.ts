@@ -1,7 +1,7 @@
 import type { AdminSession } from "./auth";
 import { base64ToBytes, bytesToBase64, decodeUtf8, requireWebCrypto, toArrayBuffer, utf8 } from "./encoding";
 
-export const GITHUB_TOKEN_STORAGE_KEY = "mea-admin-github-token-v1";
+export const GITHUB_TOKEN_STORAGE_KEY = "hub-admin-github-token-v1";
 
 interface EncryptedTokenRecord {
   version: 1;
@@ -24,7 +24,7 @@ function storageFrom(options?: TokenVaultOptions): Storage {
 }
 
 function additionalData(username: string) {
-  return utf8(`mea-admin-github-token:${username}:v1`);
+  return utf8(`hub-admin-github-token:${username}:v1`);
 }
 
 export async function saveGitHubToken(token: string, session: AdminSession, options: TokenVaultOptions = {}): Promise<void> {

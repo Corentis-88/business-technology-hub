@@ -18,7 +18,7 @@ describe("visual studio editor", () => {
     expect(screen.getByRole("button", { name: "Drag Hero and search" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Drag Qualifications" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Drag Revision tools" })).toBeInTheDocument();
-    expect(screen.getByText("MEA Business and Technology Hub")).toBeInTheDocument();
+    expect(screen.getByText("Business & Technology Hub")).toBeInTheDocument();
     expect(screen.getAllByText("Add a homepage section here")).toHaveLength(bundle.homepageBlocks.length);
 
     fireEvent.click(screen.getByRole("button", { name: "Mobile" }));
@@ -43,7 +43,7 @@ describe("visual studio editor", () => {
 describe("beginner Studio navigation", () => {
   it("opens with clear tasks and routes new items through a simple chooser", () => {
     const bundle = createEditableSnapshotFromBaselines();
-    render(<StudioWorkspace session={{ username: "editor", encryptionKey: {} as CryptoKey }} bundle={bundle} validationIssues={[]} onChange={vi.fn()} assets={[]} onAssetsChange={vi.fn()} canUndo={false} canRedo={false} onUndo={vi.fn()} onRedo={vi.fn()} draftStatus="Saved locally" onImport={vi.fn()} onReset={vi.fn().mockResolvedValue(undefined)} onPublish={vi.fn().mockResolvedValue({ previousCommitSha: "old", commitSha: "new", treeSha: "tree", branch: "main", repository: "Corentis-88/mea-business-technology-hub" })} onSaveToken={vi.fn().mockResolvedValue(undefined)} loadSavedToken={vi.fn().mockResolvedValue(null)} onLogout={vi.fn()} />);
+    render(<StudioWorkspace session={{ username: "editor", encryptionKey: {} as CryptoKey }} bundle={bundle} validationIssues={[]} onChange={vi.fn()} assets={[]} onAssetsChange={vi.fn()} canUndo={false} canRedo={false} onUndo={vi.fn()} onRedo={vi.fn()} draftStatus="Saved locally" onImport={vi.fn()} onReset={vi.fn().mockResolvedValue(undefined)} onPublish={vi.fn().mockResolvedValue({ previousCommitSha: "old", commitSha: "new", treeSha: "tree", branch: "main", repository: "Corentis-88/business-technology-hub" })} onSaveToken={vi.fn().mockResolvedValue(undefined)} loadSavedToken={vi.fn().mockResolvedValue(null)} onLogout={vi.fn()} />);
 
     expect(screen.getByRole("heading", { name: "What would you like to do?" })).toBeInTheDocument();
     expect(screen.getByText(/not live until you publish/i)).toBeInTheDocument();

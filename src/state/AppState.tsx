@@ -14,7 +14,7 @@ interface AppStateValue {
 }
 
 const AppState = createContext<AppStateValue | undefined>(undefined);
-const storageKey = "mea-revision-hub-state-v1";
+const storageKey = "business-technology-hub-state-v1";
 
 function readState() {
   try {

@@ -207,7 +207,7 @@ function fallbackResults(courseId?: string, query = ""): TopicSearchResult[] {
     matchType: "suggestion",
     matchReason: effectiveCourse
       ? "No exact match was found, so here is a useful starting point in this qualification."
-      : "No exact match was found, so here is a starting point from one of MEA's qualifications.",
+      : "No exact match was found, so here is a useful starting point from one of the qualifications.",
     matchedTerms: [],
   }));
 }
@@ -220,7 +220,7 @@ export function searchTopics(query: string, courseId?: string): TopicSearchResul
   const tokens = meaningfulTokens(expanded);
   const filteredDocuments = searchDocuments.filter((item) => !courseId || item.courseId === courseId);
 
-  // BLT is an MEA Pearson Business method and must never leak into another qualification.
+  // BLT is a Pearson Business-only teaching scaffold and must never leak into another qualification.
   if (bltQueries.some((bltQuery) => expanded === bltQuery || expanded.includes(bltQuery))) {
     if (courseId && courseId !== "business") {
       return [];
@@ -229,7 +229,7 @@ export function searchTopics(query: string, courseId?: string): TopicSearchResul
       .filter((doc) => doc.courseId === "business")
       .filter((doc) => /exam|answer|enterprise|entrepreneur/i.test(`${doc.title} ${doc.summary} ${doc.keywords.join(" ")}`))
       .slice(0, 8)
-      .map((item) => ({ item, score: 0, matchType: "exact", matchReason: "Matches MEA's Pearson Business BLT answer method.", matchedTerms: ["BLT"] }));
+      .map((item) => ({ item, score: 0, matchType: "exact", matchReason: "Matches the Pearson Business BLT answer method.", matchedTerms: ["BLT"] }));
   }
 
   const ranked = filteredDocuments.map((item) => {

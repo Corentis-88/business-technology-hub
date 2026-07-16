@@ -41,7 +41,7 @@ jobs:
       - name: Build site
         run: pnpm build
         env:
-          VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH || '/mea-business-technology-hub/' }}
+          VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH || '/business-technology-hub/' }}
 
       - name: Add single-page app fallback
         run: cp dist/index.html dist/404.html

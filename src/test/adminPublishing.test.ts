@@ -30,10 +30,10 @@ describe("atomic GitHub publishing", () => {
       fetch: fetchMock as typeof fetch,
     });
 
-    expect(result).toEqual({ previousCommitSha: "head-1", commitSha: "commit-2", treeSha: "tree-2", branch: "main", repository: "Corentis-88/mea-business-technology-hub" });
+    expect(result).toEqual({ previousCommitSha: "head-1", commitSha: "commit-2", treeSha: "tree-2", branch: "main", repository: "Corentis-88/business-technology-hub" });
     expect(fetchMock).toHaveBeenCalledTimes(7);
     const calls = fetchMock.mock.calls;
-    expect(String(calls.at(-1)?.[0])).toBe("https://api.github.com/repos/Corentis-88/mea-business-technology-hub/git/refs/heads/main");
+    expect(String(calls.at(-1)?.[0])).toBe("https://api.github.com/repos/Corentis-88/business-technology-hub/git/refs/heads/main");
     expect(calls.at(-1)?.[1]?.method).toBe("PATCH");
     expect(JSON.parse(String(calls.at(-1)?.[1]?.body))).toEqual({ sha: "commit-2", force: false });
     expect((calls[0][1]?.headers as Record<string, string>).Authorization).toBe("Bearer github-token");

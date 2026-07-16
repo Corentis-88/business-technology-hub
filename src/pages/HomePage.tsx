@@ -18,10 +18,10 @@ function HeroBlock() {
   return (
     <section className="hero">
         <div className="hero__inner">
-          <div className="hero__copy"><span className="hero-kicker"><Sparkles size={16} /> {siteSettings.schoolName}</span><h1>{siteSettings.siteName === "MEA Business and Technology Hub" ? <>MEA Business and <em>Technology Hub</em></> : siteSettings.siteName}</h1><p>{siteSettings.tagline}</p></div>
+          <div className="hero__copy"><span className="hero-kicker"><Sparkles size={16} /> {siteSettings.schoolName}</span><h1>Business &amp; <em>Technology Hub</em></h1><p>{siteSettings.tagline}</p></div>
           <div className="hero__search"><SearchBox large /><div className="popular-searches"><span>Try:</span><Link to="/search?q=break-even">break-even</Link><Link to="/search?q=CPU">CPU</Link><Link to="/search?q=R095">R095</Link><Link to="/search?q=BLT">BLT</Link></div></div>
           <div className="hero-visual" aria-label="Learning journey: understand, connect, practise and apply">
-            <div className="orbit orbit--one"><span>Understand</span></div><div className="orbit orbit--two"><span>Connect</span></div><div className="orbit orbit--three"><span>Practise</span></div><div className="hero-visual__centre"><strong>MEA</strong><span>Business + Tech</span></div>
+            <div className="orbit orbit--one"><span>Understand</span></div><div className="orbit orbit--two"><span>Connect</span></div><div className="orbit orbit--three"><span>Practise</span></div><div className="hero-visual__centre"><strong>BTH</strong><span>Business + Tech</span></div>
           </div>
         </div>
       </section>

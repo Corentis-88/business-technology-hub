@@ -6,7 +6,7 @@ import { officialDocumentHref, resources } from "../data/resources";
 import { searchTopics } from "../lib/search";
 
 describe("qualification coverage", () => {
-  it("contains the four exact MEA qualifications", () => {
+  it("contains the four exact qualifications", () => {
     expect(courses.map((course) => course.code)).toEqual(["1BS0", "J837", "J277", "J834"]);
   });
 
@@ -103,8 +103,8 @@ describe("materials", () => {
   });
 
   it("keeps official documents inside the deployed GitHub Pages base path", () => {
-    expect(officialDocumentHref("sample.pdf", "/mea-business-technology-hub/")).toBe(
-      "/mea-business-technology-hub/official-documents/sample.pdf",
+    expect(officialDocumentHref("sample.pdf", "/business-technology-hub/")).toBe(
+      "/business-technology-hub/official-documents/sample.pdf",
     );
   });
 

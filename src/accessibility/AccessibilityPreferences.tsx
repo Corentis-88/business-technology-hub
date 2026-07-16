@@ -26,7 +26,7 @@ interface AccessibilityContextValue extends AccessibilityPreferences {
   resetPreferences: () => void;
 }
 
-const STORAGE_KEY = "mea-accessibility-preferences-v1";
+const STORAGE_KEY = "hub-accessibility-preferences-v1";
 const TEXT_SIZES: TextSize[] = ["standard", "large", "extra-large"];
 
 const AccessibilityContext = createContext<AccessibilityContextValue | null>(null);

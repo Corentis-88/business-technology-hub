@@ -36,7 +36,7 @@ export function CoursePage() {
           <Link to={`/materials?course=${course.id}`}><BookOpenCheck /><span><b>Official materials</b><small>Papers, reports and specifications</small></span><ArrowRight /></Link>
           {course.id === "business" && <Link to="/business/extended-writing"><PenLine /><span><b>Extended writing</b><small>Case evidence and connected strands</small></span><ArrowRight /></Link>}
         </nav>
-        {course.answerMethod && <Link to="/business/blt" className="method-banner"><div><span className="eyebrow">MEA answer method</span><h2>{course.answerMethod.shortName}: {course.answerMethod.name}</h2><p>{course.answerMethod.pattern}</p></div><span className="button button--primary">Open BLT builder <ArrowRight size={17} /></span></Link>}
+        {course.answerMethod && <Link to="/business/blt" className="method-banner"><div><span className="eyebrow">Pearson Business answer method</span><h2>{course.answerMethod.shortName}: {course.answerMethod.name}</h2><p>{course.answerMethod.pattern}</p></div><span className="button button--primary">Open BLT builder <ArrowRight size={17} /></span></Link>}
         <div className="unit-list">
           <div className="section-heading"><div><span className="eyebrow">Course map</span><h2>Choose a unit</h2></div><p>{course.description}</p></div>
           {course.units.map((unit, index) => (

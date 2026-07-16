@@ -1,6 +1,6 @@
-export const MEA_GITHUB_TARGET = Object.freeze({
+export const HUB_GITHUB_TARGET = Object.freeze({
   owner: "Corentis-88",
-  repo: "mea-business-technology-hub",
+  repo: "business-technology-hub",
   branch: "main",
 });
 
@@ -23,7 +23,7 @@ export interface PublishResult {
   commitSha: string;
   treeSha: string;
   branch: "main";
-  repository: "Corentis-88/mea-business-technology-hub";
+  repository: "Corentis-88/business-technology-hub";
 }
 
 export class GitHubPublishError extends Error {
@@ -61,7 +61,7 @@ export async function publishToMeaRepository(request: PublishRequest): Promise<P
   validateFiles(request.files);
   const fetchApi = request.fetch ?? globalThis.fetch;
   if (!fetchApi) throw new Error("Fetch is unavailable.");
-  const base = `https://api.github.com/repos/${MEA_GITHUB_TARGET.owner}/${MEA_GITHUB_TARGET.repo}`;
+  const base = `https://api.github.com/repos/${HUB_GITHUB_TARGET.owner}/${HUB_GITHUB_TARGET.repo}`;
   const headers = {
     Accept: "application/vnd.github+json",
     Authorization: `Bearer ${token}`,
@@ -77,7 +77,7 @@ export async function publishToMeaRepository(request: PublishRequest): Promise<P
     return response.json() as Promise<T>;
   };
 
-  const reference = await call<{ object: { sha: string } }>(`/git/ref/heads/${MEA_GITHUB_TARGET.branch}`);
+  const reference = await call<{ object: { sha: string } }>(`/git/ref/heads/${HUB_GITHUB_TARGET.branch}`);
   const previousCommitSha = reference.object.sha;
   if (request.expectedHeadSha && request.expectedHeadSha !== previousCommitSha) {
     throw new GitHubPublishError("The main branch changed since this draft was opened. Refresh before publishing.", 409, { expected: request.expectedHeadSha, actual: previousCommitSha });
@@ -99,7 +99,7 @@ export async function publishToMeaRepository(request: PublishRequest): Promise<P
     method: "POST",
     body: JSON.stringify({ message, tree: tree.sha, parents: [previousCommitSha] }),
   });
-  await call(`/git/refs/heads/${MEA_GITHUB_TARGET.branch}`, {
+  await call(`/git/refs/heads/${HUB_GITHUB_TARGET.branch}`, {
     method: "PATCH",
     body: JSON.stringify({ sha: commit.sha, force: false }),
   });
@@ -108,6 +108,6 @@ export async function publishToMeaRepository(request: PublishRequest): Promise<P
     commitSha: commit.sha,
     treeSha: tree.sha,
     branch: "main",
-    repository: "Corentis-88/mea-business-technology-hub",
+    repository: "Corentis-88/business-technology-hub",
   };
 }

@@ -18,7 +18,7 @@ export const creativeImediaCourse: Course = {
   accent: "#A855F7",
   icon: "palette",
   assessmentSummary:
-    "R093 is a one-hour, 30-minute external exam worth 40%. R094 Visual identity and digital graphics is worth 25%. MEA's optional unit, R095 Characters and comics, is worth 35%.",
+    "R093 is a one-hour, 30-minute external exam worth 40%. R094 Visual identity and digital graphics is worth 25%. The optional unit covered here, R095 Characters and comics, is worth 35%.",
   aliases: [
     "iMedia",
     "creative media",
@@ -596,7 +596,7 @@ export const creativeImediaCourse: Course = {
             {
               heading: "Evidence and export",
               paragraphs: ["A final image may not prove masking, layer organisation or asset preparation. Capture concise evidence of significant technical processes. Keep the editable native file and export a distribution copy with the required format, dimensions, resolution and colour properties."],
-              bullets: ["MEA currently teaches Photoshop; learn the concept as well as the menu route.", "Check the exported file independently rather than assuming the export worked."],
+              bullets: ["Photoshop is commonly used for this work; learn the concept as well as the menu route.", "Check the exported file independently rather than assuming the export worked."],
               visual: { kind: "compression", title: "Keep a master, then make the right delivery copy", caption: "The editable master preserves production evidence; exported copies trade file size against quality for their chosen platform.", labels: ["Editable master", "Lossless export", "Lossy delivery"] },
             },
             {
@@ -627,7 +627,7 @@ export const creativeImediaCourse: Course = {
       code: "R095",
       title: "Characters and comics",
       description:
-        "MEA's chosen optional unit: plan an original character and comic, create and export them, then test and review the outcomes.",
+        "The optional unit covered here: plan an original character and comic, create and export them, then test and review the outcomes.",
       assessment:
         "OCR-set NEA, centre assessed and OCR moderated. Current public sample structure: three tasks, normally completed in 12–15 GLH.",
       weight: "35% · 70 marks",

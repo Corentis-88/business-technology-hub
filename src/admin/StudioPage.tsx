@@ -9,7 +9,7 @@ import type { PendingAsset } from "./studioHelpers";
 import { CONTENT_FILE_PATH } from "./studioConfig";
 import "./studio.css";
 
-const DRAFT_ID = "mea-site-content";
+const DRAFT_ID = "business-technology-hub-content";
 
 interface StoredStudioDraft {
   bundle: ContentBundle;
@@ -95,7 +95,7 @@ export function StudioPage() {
 
   const importBundle = (next: ContentBundle) => {
     if (!next || next.schemaVersion !== 1 || !Array.isArray(next.courses) || !Array.isArray(next.resources) || !Array.isArray(next.practiceCases)) {
-      throw new Error("This is not an MEA Content Studio backup. Choose a JSON backup exported from this studio.");
+      throw new Error("This is not a Content Studio backup. Choose a JSON backup exported from this studio.");
     }
     next = normaliseBundle(next);
     const issues = validateContentBundle(next);

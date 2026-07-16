@@ -44,8 +44,8 @@ export function StudioLogin({ onUnlock }: StudioLoginProps) {
     <main className="studio-login-shell">
       <section className="studio-login-card" aria-labelledby="studio-login-title">
         <div className="studio-login-brand">
-          <img src={`${import.meta.env.BASE_URL}branding/mea-official-logo.svg`} alt="Manchester Enterprise Academy" />
-          <div><span>Private editing area</span><strong>MEA Content Studio</strong></div>
+          <img src={`${import.meta.env.BASE_URL}branding/business-technology-hub-logo.svg`} alt="Business and Technology Hub" />
+          <div><span>Private editing area</span><strong>Content Studio</strong></div>
         </div>
         <div className="studio-login-intro">
           <span className="studio-icon-disc"><LockKeyhole /></span>

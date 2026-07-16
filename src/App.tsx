@@ -22,7 +22,7 @@ export default function App() {
   const location = useLocation();
   const studioRequested = location.pathname === STUDIO_PATH || location.pathname.startsWith(`${STUDIO_PATH}/`) || new URLSearchParams(location.search).get("studio") === STUDIO_QUERY_KEY;
   if (studioRequested) {
-    return <Suspense fallback={<main className="studio-loading"><h1>Opening MEA Content Studio…</h1></main>}><StudioPage /></Suspense>;
+    return <Suspense fallback={<main className="studio-loading"><h1>Opening Content Studio…</h1></main>}><StudioPage /></Suspense>;
   }
   return (
     <Layout>

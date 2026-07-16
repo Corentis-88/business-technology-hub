@@ -19,9 +19,9 @@ export function Layout({ children }: { children: ReactNode }) {
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header">
         <div className="header-inner">
-          <NavLink to="/" className="brand" aria-label="MEA Business and Technology Hub home">
-            <span className="brand-logo-wrap"><img src={`${import.meta.env.BASE_URL}branding/mea-official-logo.svg`} alt="Manchester Enterprise Academy" /></span>
-            <span className="brand-name"><strong>Business &amp; Technology Hub</strong><small>Learn and revise at MEA</small></span>
+          <NavLink to="/" className="brand" aria-label="Business and Technology Hub home">
+            <span className="brand-logo-wrap"><img src={`${import.meta.env.BASE_URL}${siteSettings.logoSrc}`} alt={siteSettings.logoAlt} /></span>
+            <span className="brand-name"><strong>Business &amp; Technology Hub</strong><small>Learn, practise and revise</small></span>
           </NavLink>
           <div className="header-search"><SearchBox /></div>
           <nav className="desktop-nav" aria-label="Main navigation">

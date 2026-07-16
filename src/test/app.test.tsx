@@ -19,7 +19,7 @@ function renderApp(path = "/") {
 
 describe("student journeys", () => {
   it("keeps the private editing studio off the public navigation and opens first-time setup at its direct URL", async () => {
-    renderApp("/manage-mea-7f3k9q");
+    renderApp("/manage-hub-7f3k9q");
     expect(await screen.findByRole("heading", { name: "Create the login for this computer" }, { timeout: 5000 })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Create login and open studio" })).toBeInTheDocument();
     expect(screen.queryByRole("navigation", { name: "Main navigation" })).not.toBeInTheDocument();
@@ -27,8 +27,8 @@ describe("student journeys", () => {
 
   it("renders four qualification front doors", () => {
     renderApp();
-    expect(screen.getByRole("heading", { name: "MEA Business and Technology Hub" })).toBeInTheDocument();
-    expect(screen.getByText("Helping you easily learn and revise topics at MEA in Business and Technology")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Business & Technology Hub" })).toBeInTheDocument();
+    expect(screen.getByText("Helping you easily learn and revise Business and Technology qualifications")).toBeInTheDocument();
     expect(screen.getByText("Business GCSE")).toBeInTheDocument();
     expect(screen.getByText("Enterprise & Marketing")).toBeInTheDocument();
     expect(screen.getByText("Computer Science")).toBeInTheDocument();
@@ -60,7 +60,7 @@ describe("student journeys", () => {
     expect(screen.getByRole("heading", { name: "Build one complete BLT" })).toBeInTheDocument();
     expect(screen.getAllByText("Completed answer")).toHaveLength(4);
     expect(screen.getByText(/Never begin the sentence with “Because”/)).toBeInTheDocument();
-    expect(screen.getByText(/Original MEA practice case/)).toBeInTheDocument();
+    expect(screen.getByText(/Original fictional practice case/)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Use the same source at different mark levels" })).toBeInTheDocument();
     expect(screen.getByText(/Read Extract A and look at Figures 1, 2 and 3/)).toBeInTheDocument();
   });
