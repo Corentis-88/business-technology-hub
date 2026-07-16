@@ -20,8 +20,8 @@ function removePrivateResearchFromBuild() {
   };
 }
 
-export default defineConfig(({ command }) => ({
-  base: process.env.VITE_BASE_PATH ?? (command === "build" ? "/business-technology-hub/" : "/"),
+export default defineConfig({
+  base: process.env.VITE_BASE_PATH ?? "/",
   plugins: [react(), removePrivateResearchFromBuild()],
   publicDir: "research",
   server: { port: 4173, strictPort: true },
@@ -31,4 +31,4 @@ export default defineConfig(({ command }) => ({
     setupFiles: "./src/test/setup.ts",
     css: true
   }
-}));
+});
